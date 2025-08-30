@@ -1,0 +1,24 @@
+[Unit]
+Description=Redis
+Wants=network-online.target
+After=network-online.target local-fs.target
+
+[Container]
+Pod=paperless.pod
+ContainerName=redis
+Image=docker.io/library/redis:latest
+AutoUpdate=registry
+Timezone=local
+
+EnvironmentFile=paperless.env
+
+Volume=paperless.volume:/data:rw,Z
+
+[Service]
+Restart=on-failure
+TimeoutStartSec=300
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

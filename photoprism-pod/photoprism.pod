@@ -1,0 +1,7 @@
+[Pod]
+DNS=10.1.1.11
+DNSSearch=thenoisykeyboard.com
+Network=proxy.network
+PodName=photoprism
+PublishPort=2342:2342/tcp
+PublishPort=8765:80/tcp

@@ -1,0 +1,27 @@
+[Unit]
+Description=Authelia
+Wants=network-online.target
+After=network-online.target local-fs.target
+
+[Container]
+ContainerName=authelia
+Image=docker.io/authelia/authelia:latest
+AutoUpdate=registry
+Timezone=local
+
+User=0:0
+
+Network=proxy.network
+HostName=authelia
+PublishPort=9094:9094/tcp
+
+Volume=%h/containers/storage/authelia/config:/config:rw,Z
+
+[Service]
+Restart=on-failure
+TimeoutStartSec=300
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

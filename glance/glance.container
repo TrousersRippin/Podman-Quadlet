@@ -1,0 +1,26 @@
+[Unit]
+Description=Glance
+Wants=network-online.target
+After=network-online.target podman.socket local-fs.target
+
+[Container]
+ContainerName=glance
+Image=docker.io/glanceapp/glance:latest
+AutoUpdate=registry
+Timezone=local
+
+Network=proxy.network
+HostName=glance
+PublishPort=8087:8087/tcp
+
+Volume=%h/containers/storage/glance/config:/app/config:rw,Z
+Volume=%h/containers/storage/glance/icons:/app/assets:rw,Z
+
+[Service]
+Restart=on-failure
+TimeoutStartSec=300
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

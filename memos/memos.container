@@ -1,0 +1,25 @@
+[Unit]
+Description=Memos
+Wants=network-online.target
+After=network-online.target local-fs.target
+
+[Container]
+ContainerName=memos
+Image=docker.io/neosmemo/memos:latest
+AutoUpdate=registry
+Timezone=local
+
+Network=proxy.network
+HostName=memos
+PublishPort=5230:5230/tcp
+
+Volume=%h/containers/storage/memos/config:/var/opt/memos:rw,Z
+
+[Service]
+Restart=on-failure
+TimeoutStartSec=300
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

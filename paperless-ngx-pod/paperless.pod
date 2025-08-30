@@ -1,0 +1,6 @@
+[Pod]
+DNS=10.1.1.11
+DNSSearch=thenoisykeyboard.com
+Network=proxy.network
+PodName=paperless-ngx
+PublishPort=8282:8282/tcp
