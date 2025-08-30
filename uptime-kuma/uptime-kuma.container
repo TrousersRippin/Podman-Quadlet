@@ -17,8 +17,10 @@ Volume=%h/containers/storage/uptime-kuma/config:/app/data:rw,Z
 Volume=/%t/podman/podman.sock:/var/run/docker.sock:ro
 
 [Service]
+NoNewPrivileges=true
 Restart=on-failure
-TimeoutStartSec=300
+TimeoutStartSec=90
+SuccessExitStatus=0 143
 StandardOutput=journal
 StandardError=journal
 

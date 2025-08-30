@@ -21,8 +21,10 @@ PublishPort=9882:9882/tcp
 Volume=/%t/podman/podman.sock:/run/podman/podman.sock:ro
 
 [Service]
+NoNewPrivileges=true
 Restart=on-failure
-TimeoutStartSec=300
+TimeoutStartSec=90
+SuccessExitStatus=0 143
 StandardOutput=journal
 StandardError=journal
 

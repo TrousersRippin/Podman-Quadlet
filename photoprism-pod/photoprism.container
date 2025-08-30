@@ -1,9 +1,8 @@
 [Unit]
 Description=PhotoPrism
 Wants=network-online.target
-After=network-online.target local-fs.target
+After=network-online.target local-fs.target mariadb.service
 Requires=mariadb.service
-After=mariadb.service
 
 [Container]
 Pod=photoprism.pod
@@ -24,8 +23,10 @@ Volume=%h/containers/storage/photoprism:/photoprism/storage:rw,Z
 Volume=/mnt/hdd/photos:/photoprism/originals:ro,z
 
 [Service]
+NoNewPrivileges=true
 Restart=on-failure
-TimeoutStartSec=300
+TimeoutStartSec=90
+SuccessExitStatus=0 143
 StandardOutput=journal
 StandardError=journal
 

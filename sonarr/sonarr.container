@@ -20,8 +20,10 @@ Volume=%h/containers/storage/sonarr/config:/config:rw,Z
 Volume=/mnt/ssd:/data:rw,z
 
 [Service]
+NoNewPrivileges=true
 Restart=on-failure
-TimeoutStartSec=300
+TimeoutStartSec=90
+SuccessExitStatus=0 143
 StandardOutput=journal
 StandardError=journal
 

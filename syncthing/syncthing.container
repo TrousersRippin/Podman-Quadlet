@@ -22,8 +22,10 @@ Volume=%h/containers/storage/syncthing:/var/syncthing:rw,Z
 Volume=%h:/var/syncthing/home:rw,Z
 
 [Service]
+NoNewPrivileges=true
 Restart=on-failure
-TimeoutStartSec=300
+TimeoutStartSec=90
+SuccessExitStatus=0 143
 StandardOutput=journal
 StandardError=journal
 

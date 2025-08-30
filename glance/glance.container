@@ -17,8 +17,10 @@ Volume=%h/containers/storage/glance/config:/app/config:rw,Z
 Volume=%h/containers/storage/glance/icons:/app/assets:rw,Z
 
 [Service]
+NoNewPrivileges=true
 Restart=on-failure
-TimeoutStartSec=300
+TimeoutStartSec=90
+SuccessExitStatus=0 143
 StandardOutput=journal
 StandardError=journal
 

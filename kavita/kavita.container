@@ -17,8 +17,10 @@ Volume=%h/containers/storage/kavita/config:/kavita/config:rw,Z
 Volume=/mnt/hdd/books:/books:ro,z
 
 [Service]
+NoNewPrivileges=true
 Restart=on-failure
-TimeoutStartSec=300
+TimeoutStartSec=90
+SuccessExitStatus=0 143
 StandardOutput=journal
 StandardError=journal
 

@@ -16,8 +16,10 @@ PublishPort=5230:5230/tcp
 Volume=%h/containers/storage/memos/config:/var/opt/memos:rw,Z
 
 [Service]
+NoNewPrivileges=true
 Restart=on-failure
-TimeoutStartSec=300
+TimeoutStartSec=90
+SuccessExitStatus=0 143
 StandardOutput=journal
 StandardError=journal
 

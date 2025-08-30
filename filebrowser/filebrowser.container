@@ -24,8 +24,10 @@ Volume=%h/containers/storage/filebrowser/database:/database:rw,Z
 Volume=/:/srv:rw,z
 
 [Service]
+NoNewPrivileges=true
 Restart=on-failure
-TimeoutStartSec=300
+TimeoutStartSec=90
+SuccessExitStatus=0 143
 StandardOutput=journal
 StandardError=journal
 

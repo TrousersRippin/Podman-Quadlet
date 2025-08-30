@@ -18,8 +18,10 @@ PublishPort=9094:9094/tcp
 Volume=%h/containers/storage/authelia/config:/config:rw,Z
 
 [Service]
+NoNewPrivileges=true
 Restart=on-failure
-TimeoutStartSec=300
+TimeoutStartSec=90
+SuccessExitStatus=0 143
 StandardOutput=journal
 StandardError=journal
 

@@ -1,9 +1,8 @@
 [Unit]
 Description=Paperless-ngx
 Wants=network-online.target
-After=network-online.target local-fs.target
+After=network-online.target local-fs.target redis.service
 Requires=redis.service
-After=redis.service
 
 [Container]
 Pod=paperless.pod
@@ -22,7 +21,8 @@ Volume=%h/containers/storage/paperless/media:/usr/src/paperless/media:rw,Z
 
 [Service]
 Restart=on-failure
-TimeoutStartSec=300
+TimeoutStartSec=90
+SuccessExitStatus=0 143
 StandardOutput=journal
 StandardError=journal
 

@@ -19,8 +19,10 @@ Secret=password,type=env,target=MARIADB_ROOT_PASSWORD
 Volume=photoprism.volume:/var/lib/mysql:rw,Z
 
 [Service]
+NoNewPrivileges=true
 Restart=on-failure
-TimeoutStartSec=300
+TimeoutStartSec=90
+SuccessExitStatus=0 143
 StandardOutput=journal
 StandardError=journal
 

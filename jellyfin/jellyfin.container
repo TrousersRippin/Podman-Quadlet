@@ -21,8 +21,10 @@ Volume=/mnt/hdd:/data:ro,z
 Volume=/mnt/ssd/media:/download:rw,z
 
 [Service]
+NoNewPrivileges=true
 Restart=on-failure
-TimeoutStartSec=300
+TimeoutStartSec=90
+SuccessExitStatus=0 143
 StandardOutput=journal
 StandardError=journal
 

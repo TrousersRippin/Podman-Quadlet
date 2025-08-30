@@ -1,9 +1,8 @@
 [Unit]
 Description=phpMyAdmin
 Wants=network-online.target
-After=network-online.target local-fs.target
+After=network-online.target local-fs.target mariadb.service
 Requires=mariadb.service
-After=mariadb.service
 
 [Container]
 Pod=photoprism.pod
@@ -19,8 +18,10 @@ Volume=%h/containers/storage/phpmyadmin/sessions:/sessions:rw,Z
 Volume=%h/containers/storage/phpmyadmin/themes/boodark-nord:/var/www/html/themes/boodark-nord:ro,Z
 
 [Service]
+NoNewPrivileges=true
 Restart=on-failure
-TimeoutStartSec=300
+TimeoutStartSec=90
+SuccessExitStatus=0 143
 StandardOutput=journal
 StandardError=journal
 

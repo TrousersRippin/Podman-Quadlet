@@ -19,10 +19,13 @@ Volume=%h/containers/storage/ghost/config/config.production.json:/var/lib/ghost/
 Volume=%h/containers/storage/ghost/config:/var/lib/ghost/content:rw,Z
 
 [Service]
+NoNewPrivileges=true
 Restart=on-failure
-TimeoutStartSec=300
+TimeoutStartSec=90
+SuccessExitStatus=0 143
 StandardOutput=journal
 StandardError=journal
+
 
 [Install]
 WantedBy=multi-user.target
