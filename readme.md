@@ -12,5 +12,4 @@ Pull the repo into an empty folder. In some case you need to create an env varia
 
 Make the required directories.
 
-*mkdir -p $HOME/.config/containers/systemd*
-*mkdir -p $HOME/containers/storage*
+*mkdir -p $HOME/.config/containers/systemd $HOME/containers/storage*
