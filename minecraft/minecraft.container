@@ -1,0 +1,31 @@
+[Unit]
+Description=Minecraft
+Wants=network-online.target
+After=network-online.target local-fs.target
+
+[Container]
+ContainerName=minecraft
+Image=docker.io/itzg/minecraft-bedrock-server:latest
+AutoUpdate=registry
+Timezone=local
+
+Exec=tty=true
+Exec=stdin_open=true
+
+Environment=EULA=TRUE
+
+Network=proxy.network
+HostName=minecraft
+PublishPort=19132:19132/udp
+
+Volume=%h/containers/storage/minecraft/data:/data:rw,Z
+
+[Service]
+NoNewPrivileges=true
+Restart=on-failure
+TimeoutStartSec=300
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target default.target

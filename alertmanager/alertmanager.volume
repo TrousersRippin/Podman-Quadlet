@@ -1,0 +1,6 @@
+[Unit]
+Description=Alertmanager Data Volume
+
+[Volume]
+Label=app=alertmanager-data
+VolumeName=alertmanager-data

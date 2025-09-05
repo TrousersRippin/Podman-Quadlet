@@ -1,0 +1,31 @@
+[Unit]
+Description=Prometheus
+Wants=network-online.target
+After=network-online.target local-fs.target node-exporter.service
+Requires=node-exporter.service
+
+[Container]
+ContainerName=prometheus
+Image=docker.io/prom/prometheus:latest
+AutoUpdate=registry
+Timezone=local
+
+Exec=--config.file=/etc/prometheus/prometheus.yaml --web.listen-address=0.0.0.0:9092 --web.enable-lifecycle
+
+Network=proxy.network
+HostName=prometheus
+PublishPort=9092:9092/tcp
+
+Volume=%h/containers/storage/prometheus/config/prometheus.yaml:/etc/prometheus/prometheus.yaml:ro,Z
+Volume=%h/containers/storage/prometheus/config/alerts.yaml:/etc/prometheus/alerts.yaml:ro,Z
+Volume=prometheus.volume:/prometheus:rw,Z
+
+[Service]
+NoNewPrivileges=true
+Restart=on-failure
+TimeoutStartSec=300
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target default.target

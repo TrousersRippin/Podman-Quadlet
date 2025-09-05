@@ -1,0 +1,31 @@
+[Unit]
+Description=Mosquitto
+Wants=network-online.target
+After=network-online.target local-fs.target
+
+[Container]
+ContainerName=mosquitto
+Image=docker.io/library/eclipse-mosquitto:latest
+AutoUpdate=registry
+Timezone=local
+
+UserNS=keep-id:uid=1000,gid=1000
+
+Network=proxy.network
+HostName=mosquitto
+PublishPort=8883:8883/tcp
+
+Volume=%h/containers/storage/mosquitto/config:/mosquitto/config:rw,Z
+Volume=%h/containers/storage/mosquitto/config/log:/mosquitto/log:rw,Z
+Volume=%h/containers/storage/mosquitto/certs:/mosquitto/certs:ro,Z
+Volume=%h/containers/storage/mosquitto/data:/mosquitto/data:rw,Z
+
+[Service]
+NoNewPrivileges=true
+Restart=on-failure
+TimeoutStartSec=300
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target default.target

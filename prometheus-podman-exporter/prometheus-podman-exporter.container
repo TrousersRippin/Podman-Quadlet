@@ -1,0 +1,31 @@
+[Unit]
+Description=Prometheus-Podman-Exporter
+Wants=network-online.target
+After=network-online.target podman.socket local-fs.target
+
+[Container]
+ContainerName=prometheus-podman-exporter
+Image=quay.io/navidys/prometheus-podman-exporter
+AutoUpdate=registry
+Timezone=local
+
+Exec=--collector.cache_duration 50000
+
+Environment=CONTAINER_HOST=unix:///run/podman/podman.sock
+UserNS=keep-id:uid=65534
+
+Network=proxy.network
+HostName=prometheus-podman-exporter
+PublishPort=9882:9882/tcp
+
+Volume=/%t/podman/podman.sock:/run/podman/podman.sock:ro
+
+[Service]
+NoNewPrivileges=true
+Restart=on-failure
+TimeoutStartSec=300
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target default.target

@@ -1,0 +1,29 @@
+[Unit]
+Description=MariaDB
+Wants=network-online.target
+After=network-online.target local-fs.target
+
+[Container]
+Pod=photoprism.pod
+ContainerName=mariadb
+Image=docker.io/library/mariadb:latest
+AutoUpdate=registry
+Timezone=local
+
+EnvironmentFile=photoprism.env
+
+Secret=db_user,type=env,target=MARIADB_USER
+Secret=db_password,type=env,target=MARIADB_PASSWORD
+Secret=password,type=env,target=MARIADB_ROOT_PASSWORD
+
+Volume=photoprism.volume:/var/lib/mysql:rw,Z
+
+[Service]
+NoNewPrivileges=true
+Restart=on-failure
+TimeoutStartSec=300
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target default.target
