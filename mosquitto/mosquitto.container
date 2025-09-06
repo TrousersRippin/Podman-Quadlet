@@ -11,8 +11,8 @@ Timezone=local
 
 UserNS=keep-id:uid=1000,gid=1000
 
-Network=proxy.network
 HostName=mosquitto
+Network=proxy.network
 PublishPort=8883:8883/tcp
 
 Volume=%h/containers/storage/mosquitto/config:/mosquitto/config:rw,Z

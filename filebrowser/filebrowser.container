@@ -9,14 +9,15 @@ Image=docker.io/filebrowser/filebrowser:latest
 AutoUpdate=registry
 Timezone=local
 
-HealthCmd=none
-UserNS=keep-id:uid=1000,gid=1000
-
 Secret=user,type=env,target=FB_USERNAME
 Secret=fb_password,type=env,target=FB_PASSWORD
 
-Network=proxy.network
+HealthCmd=none
+
+UserNS=keep-id:uid=1000,gid=1000
+
 HostName=filebrowser
+Network=proxy.network
 PublishPort=8005:8005/tcp
 
 Volume=%h/containers/storage/filebrowser/config:/config:rw,Z

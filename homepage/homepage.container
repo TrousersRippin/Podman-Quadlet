@@ -9,11 +9,12 @@ Image=docker.io/gethomepage/homepage:latest
 AutoUpdate=registry
 Timezone=local
 
-HealthCmd=none
 EnvironmentFile=homepage.env
 
-Network=proxy.network
+HealthCmd=none
+
 HostName=homepage
+Network=proxy.network
 PublishPort=3000:3000/tcp
 
 Volume=%h/containers/storage/homepage/config:/config:rw,Z

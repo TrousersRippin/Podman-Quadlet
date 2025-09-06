@@ -9,7 +9,10 @@ Image=docker.io/pihole/pihole:latest
 AutoUpdate=registry
 Timezone=local
 
-PodmanArgs=--privileged
+Environment=PIHOLE_UID=1000
+Environment=PIHOLE_GID=1000
+Environment=FTLCONF_webserver_api_password=''
+
 AddCapability=NET_ADMIN
 AddCapability=NET_BIND_SERVICE
 AddCapability=NET_RAW
@@ -17,12 +20,8 @@ AddCapability=SYS_NICE
 AddCapability=SYS_TIME
 AddCapability=CHOWN
 
-Environment=PIHOLE_UID=1000
-Environment=PIHOLE_GID=1000
-Environment=FTLCONF_webserver_api_password=''
-
-Network=proxy.network
 HostName=pihole
+Network=proxy.network
 PublishPort=8003:8003/tcp
 PublishPort=53:53/tcp
 PublishPort=53:53/udp

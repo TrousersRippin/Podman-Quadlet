@@ -9,8 +9,8 @@ Image=docker.io/glanceapp/glance:latest
 AutoUpdate=registry
 Timezone=local
 
-Network=proxy.network
 HostName=glance
+Network=proxy.network
 PublishPort=8087:8087/tcp
 
 Volume=%h/containers/storage/glance/config:/app/config:rw,Z

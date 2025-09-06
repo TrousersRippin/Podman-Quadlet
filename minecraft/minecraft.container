@@ -9,13 +9,13 @@ Image=docker.io/itzg/minecraft-bedrock-server:latest
 AutoUpdate=registry
 Timezone=local
 
-Exec=tty=true
-Exec=stdin_open=true
-
 Environment=EULA=TRUE
 
-Network=proxy.network
+Exec=stdin_open=true
+Exec=tty=true
+
 HostName=minecraft
+Network=proxy.network
 PublishPort=19132:19132/udp
 
 Volume=%h/containers/storage/minecraft/data:/data:rw,Z

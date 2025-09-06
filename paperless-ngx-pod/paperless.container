@@ -11,8 +11,9 @@ Image=docker.io/paperlessngx/paperless-ngx:latest
 AutoUpdate=registry
 Timezone=local
 
-UserNS=keep-id:uid=1000,gid=1000
 EnvironmentFile=paperless.env
+
+UserNS=keep-id:uid=1000,gid=1000
 
 Volume=%h/containers/storage/paperless/consume:/usr/src/paperless/consume:rw,Z
 Volume=%h/containers/storage/paperless/data:/usr/src/paperless/data:rw,Z

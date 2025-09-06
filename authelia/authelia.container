@@ -9,11 +9,12 @@ Image=docker.io/authelia/authelia:latest
 AutoUpdate=registry
 Timezone=local
 
-User=0:0
 Environment=AUTHELIA_IDENTITY_VALIDATION_RESET_PASSWORD_JWT_SECRET_FILE=/run/secrets/jwt_secret
 
-Network=proxy.network
+User=0:0
+
 HostName=authelia
+Network=proxy.network
 PublishPort=9094:9094/tcp
 
 Volume=%h/containers/storage/authelia/config:/config:rw,Z

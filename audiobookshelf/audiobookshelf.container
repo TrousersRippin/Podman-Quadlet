@@ -9,11 +9,12 @@ Image=docker.io/advplyr/audiobookshelf:latest
 AutoUpdate=registry
 Timezone=local
 
-User=0:0
 Environment=PORT=13378
 
-Network=proxy.network
+User=0:0
+
 HostName=audiobookshelf
+Network=proxy.network
 PublishPort=13378:13378/tcp
 
 Volume=%h/containers/storage/audiobookshelf/config:/config:rw,Z

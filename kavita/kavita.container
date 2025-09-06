@@ -9,8 +9,8 @@ Image=docker.io/jvmilazz0/kavita:latest
 AutoUpdate=registry
 Timezone=local
 
-Network=proxy.network
 HostName=kavita
+Network=proxy.network
 PublishPort=5000:5000/tcp
 
 Volume=%h/containers/storage/kavita/config:/kavita/config:rw,Z

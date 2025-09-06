@@ -14,8 +14,8 @@ Environment=GOTIFY_SERVER_PORT=8001
 Secret=user,type=env,target=GOTIFY_DEFAULTUSER_NAME
 Secret=password,type=env,target=GOTIFY_DEFAULTUSER_PASS
 
-Network=proxy.network
 HostName=gotify
+Network=proxy.network
 PublishPort=8001:8001/tcp
 
 Volume=%h/containers/storage/gotify/config:/app/data:rw,Z

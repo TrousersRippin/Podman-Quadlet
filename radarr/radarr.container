@@ -12,8 +12,8 @@ Timezone=local
 Environment=PUID=0
 Environment=PGID=0
 
-Network=proxy.network
 HostName=radarr
+Network=proxy.network
 PublishPort=7878:7878/tcp
 
 Volume=%h/containers/storage/radarr/config:/config:rw,Z

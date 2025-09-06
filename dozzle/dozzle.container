@@ -14,8 +14,8 @@ Environment=DOZZLE_ENABLE_ACTIONS=true
 Environment=DOZZLE_HOSTNAME=zimacube
 Environment=DOZZLE_NO_ANALYTICS=true
 
-Network=proxy.network
 HostName=dozzle
+Network=proxy.network
 PublishPort=8008:8008/tcp
 
 Volume=/%t/podman/podman.sock:/var/run/docker.sock:ro

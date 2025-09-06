@@ -12,8 +12,8 @@ Timezone=local
 Environment=PUID=0
 Environment=PGID=0
 
-Network=proxy.network
 HostName=bazarr
+Network=proxy.network
 PublishPort=6767:6767/tcp
 
 Volume=%h/containers/storage/bazarr/config:/config:rw,Z

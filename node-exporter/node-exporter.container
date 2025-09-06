@@ -11,8 +11,8 @@ Timezone=local
 
 Exec=--path.rootfs=/host
 
-Network=proxy.network
 HostName=node-exporter
+Network=proxy.network
 PublishPort=9100:9100/tcp
 
 Volume=/:/host:ro,rslave

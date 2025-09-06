@@ -10,8 +10,8 @@ Image=docker.io/grafana/grafana:latest
 AutoUpdate=registry
 Timezone=local
 
-Network=proxy.network
 HostName=grafana
+Network=proxy.network
 PublishPort=3333:3333/tcp
 
 Volume=%h/containers/storage/grafana/config/grafana.ini:/etc/grafana/grafana.ini:rw,Z

@@ -11,8 +11,8 @@ Timezone=local
 
 UserNS=keep-id:uid=1000,gid=1000
 
-Network=proxy.network
 HostName=gitea
+Network=proxy.network
 PublishPort=3002:3002/tcp
 
 Volume=%h/containers/storage/gitea/config:/etc/gitea:rw,Z

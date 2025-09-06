@@ -12,10 +12,6 @@ Timezone=local
 
 EnvironmentFile=photoprism.env
 
-Secret=db_user,type=env,target=MARIADB_USER
-Secret=db_password,type=env,target=MARIADB_PASSWORD
-Secret=password,type=env,target=MARIADB_ROOT_PASSWORD
-
 Volume=photoprism.volume:/var/lib/mysql:rw,Z
 
 [Service]

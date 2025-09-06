@@ -9,12 +9,14 @@ Image=lscr.io/linuxserver/transmission:latest
 AutoUpdate=registry
 Timezone=local
 
-PodmanArgs=--privileged
 Environment=PUID=0
 Environment=PGID=0
 
-Network=proxy.network
+AddCapability=NET_ADMIN
+AddCapability=NET_RAW
+
 HostName=transmission
+Network=proxy.network
 PublishPort=9091:9091/tcp
 PublishPort=51413:51413/tcp
 PublishPort=51413:51413/udp

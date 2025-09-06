@@ -9,8 +9,8 @@ Image=docker.io/louislam/uptime-kuma:latest
 AutoUpdate=registry
 Timezone=local
 
-Network=proxy.network
 HostName=uptime-kuma
+Network=proxy.network
 PublishPort=3001:3001/tcp
 
 Volume=%h/containers/storage/uptime-kuma/config:/app/data:rw,Z

@@ -11,8 +11,8 @@ Timezone=local
 
 UserNS=keep-id:uid=1000,gid=1000
 
-Network=proxy.network
 HostName=ghost
+Network=proxy.network
 PublishPort=2368:2368/tcp
 
 Volume=%h/containers/storage/ghost/config/config.production.json:/var/lib/ghost/config.production.json:ro,Z

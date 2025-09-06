@@ -12,8 +12,8 @@ Timezone=local
 
 Exec=--config.file=/etc/prometheus/prometheus.yaml --web.listen-address=0.0.0.0:9092 --web.enable-lifecycle
 
-Network=proxy.network
 HostName=prometheus
+Network=proxy.network
 PublishPort=9092:9092/tcp
 
 Volume=%h/containers/storage/prometheus/config/prometheus.yaml:/etc/prometheus/prometheus.yaml:ro,Z

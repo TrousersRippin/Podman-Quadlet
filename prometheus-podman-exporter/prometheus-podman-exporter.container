@@ -9,13 +9,14 @@ Image=quay.io/navidys/prometheus-podman-exporter
 AutoUpdate=registry
 Timezone=local
 
+Environment=CONTAINER_HOST=unix:///run/podman/podman.sock
+
 Exec=--collector.cache_duration 50000
 
-Environment=CONTAINER_HOST=unix:///run/podman/podman.sock
 UserNS=keep-id:uid=65534
 
-Network=proxy.network
 HostName=prometheus-podman-exporter
+Network=proxy.network
 PublishPort=9882:9882/tcp
 
 Volume=/%t/podman/podman.sock:/run/podman/podman.sock:ro
