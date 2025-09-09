@@ -1,7 +1,7 @@
 [Unit]
 Description=Glance
 Wants=network-online.target
-After=network-online.target podman.socket local-fs.target
+After=network-online.target local-fs.target
 
 [Container]
 ContainerName=glance
