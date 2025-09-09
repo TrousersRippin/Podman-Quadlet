@@ -13,7 +13,7 @@ UserNS=keep-id:uid=1000,gid=1000
 
 HostName=mosquitto
 Network=proxy.network
-PublishPort=8883:8883/tcp
+PublishPort=1883:1883/tcp
 
 Volume=%h/containers/storage/mosquitto/config:/mosquitto/config:rw,Z
 Volume=%h/containers/storage/mosquitto/config/log:/mosquitto/log:rw,Z
