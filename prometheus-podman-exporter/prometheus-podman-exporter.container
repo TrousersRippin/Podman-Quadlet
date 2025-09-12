@@ -5,7 +5,7 @@ After=network-online.target podman.socket local-fs.target
 
 [Container]
 ContainerName=prometheus-podman-exporter
-Image=quay.io/navidys/prometheus-podman-exporter
+Image=quay.io/navidys/prometheus-podman-exporter:latest
 AutoUpdate=registry
 Timezone=local
 
