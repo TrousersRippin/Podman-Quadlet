@@ -9,14 +9,13 @@ Image=docker.io/amir20/dozzle:latest
 AutoUpdate=registry
 Timezone=local
 
-Environment=DOZZLE_ADDR=:8008
 Environment=DOZZLE_ENABLE_ACTIONS=true
 Environment=DOZZLE_HOSTNAME=zimacube
 Environment=DOZZLE_NO_ANALYTICS=true
 
 HostName=dozzle
 Network=proxy.network
-PublishPort=8008:8008/tcp
+PublishPort=8008:8080/tcp
 
 Volume=/%t/podman/podman.sock:/var/run/docker.sock:ro
 
