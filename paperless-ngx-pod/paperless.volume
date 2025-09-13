@@ -1,6 +1,0 @@
-[Unit]
-Description=Paperless Data Volume
-
-[Volume]
-Label=app=paperless-data
-VolumeName=paperless-data

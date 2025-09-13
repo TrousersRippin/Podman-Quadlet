@@ -1,6 +1,0 @@
-[Unit]
-Description=Grafana Data Volume
-
-[Volume]
-Label=app=grafana-data
-VolumeName=grafana-data

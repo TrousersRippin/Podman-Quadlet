@@ -1,7 +1,7 @@
 [Unit]
 Description=Prometheus-Podman-Exporter
 Wants=network-online.target
-After=network-online.target podman.socket local-fs.target
+After=network-online.target local-fs.target podman.socket
 
 [Container]
 ContainerName=prometheus-podman-exporter

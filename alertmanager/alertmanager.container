@@ -16,7 +16,7 @@ Network=proxy.network
 PublishPort=9093:9093/tcp
 
 Volume=%h/containers/storage/alertmanager/config/alertmanager.yaml:/etc/alertmanager/alertmanager.yaml:ro,Z
-Volume=alertmanager.volume:/alertmanager:rw,Z
+Volume=%h/containers/storage/alertmanager:/alertmanager:rw,Z
 
 [Service]
 NoNewPrivileges=true
