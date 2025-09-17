@@ -15,8 +15,8 @@ HostName=jellyfin
 Network=proxy.network
 PublishPort=8096:8096/tcp
 
-Volume=%h/containers/storage/jellyfin:/cache:rw,Z
-Volume=%h/containers/storage/jellyfin:/config:rw,Z
+Volume=%h/containers/storage/jellyfin/cache:/cache:rw,Z
+Volume=%h/containers/storage/jellyfin/config:/config:rw,Z
 Volume=/mnt/hdd:/data:ro,z
 Volume=/mnt/ssd/media:/download:rw,z
 
