@@ -9,6 +9,8 @@ Image=docker.io/jellyfin/jellyfin:latest
 AutoUpdate=registry
 Timezone=local
 
+HealthCmd=none
+
 UserNS=keep-id:uid=1000,gid=1000
 
 HostName=jellyfin

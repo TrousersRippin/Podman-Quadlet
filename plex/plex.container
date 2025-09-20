@@ -9,12 +9,14 @@ Image=docker.io/plexinc/pms-docker:latest
 AutoUpdate=registry
 Timezone=local
 
-EnvironmentFile=plex.env
+Environment=PLEX_UID=0
+Environment=PLEX_GID=0
+Environment=PLEX_VERSION=docker
 
 HealthCmd=none
 
 HostName=plex
-Network=proxy.network
+Network=host
 PublishPort=32400:32400/tcp
 PublishPort=1900:1900/udp
 PublishPort=3005:3005/tcp
