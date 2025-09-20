@@ -9,6 +9,8 @@ Image=docker.io/advplyr/audiobookshelf:latest
 AutoUpdate=registry
 Timezone=local
 
+Environment=REFRESH_TOKEN_EXPIRY=43200
+
 User=0:0
 
 HostName=audiobookshelf
