@@ -13,14 +13,13 @@ Environment=Z2M_WATCHDOG=1
 
 PodmanArgs=--group-add keep-groups
 
-AddDevice=/dev/ttyUSB0:/dev/ttyUSB0
+AddDevice=/dev/serial/by-id/usb-Silicon_Labs_Sonoff_Zigbee_3.0_USB_Dongle_Plus_0001-if00-port0:/dev/ttyUSB0
 
 HostName=zigbee2mqtt
 Network=proxy.network
 PublishPort=8888:8888/tcp
 
 Volume=%h/containers/storage/zigbee2mqtt/config:/app/data:rw,Z
-Volume=%h/containers/storage/mosquitto/certs/:/certs:ro,Z
 Volume=/run/udev:/run/udev:ro
 
 [Service]
