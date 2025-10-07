@@ -17,7 +17,6 @@ PublishPort=1883:1883/tcp
 
 Volume=%h/containers/storage/mosquitto/config:/mosquitto/config:rw,Z
 Volume=%h/containers/storage/mosquitto/config/log:/mosquitto/log:rw,Z
-Volume=%h/containers/storage/mosquitto/certs:/mosquitto/certs:ro,Z
 Volume=%h/containers/storage/mosquitto/data:/mosquitto/data:rw,Z
 
 [Service]
