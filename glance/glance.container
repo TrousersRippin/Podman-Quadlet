@@ -13,8 +13,8 @@ HostName=glance
 Network=proxy.network
 PublishPort=8087:8087/tcp
 
-Volume=%h/containers/storage/glance/config:/app/config:rw,Z
-Volume=%h/containers/storage/glance/icons:/app/assets:rw,Z
+Volume=%h/containers/storage/glance/config:/app/config:rw
+Volume=%h/containers/storage/glance/icons:/app/assets:rw
 
 [Service]
 NoNewPrivileges=true

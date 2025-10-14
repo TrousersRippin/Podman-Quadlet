@@ -20,9 +20,9 @@ HostName=filebrowser
 Network=proxy.network
 PublishPort=8005:8005/tcp
 
-Volume=%h/containers/storage/filebrowser/config:/config:rw,Z
-Volume=%h/containers/storage/filebrowser/database:/database:rw,Z
-Volume=/:/srv:rw,z
+Volume=%h/containers/storage/filebrowser/config:/config:rw
+Volume=%h/containers/storage/filebrowser/database:/database:rw
+Volume=/:/srv:rw
 
 [Service]
 NoNewPrivileges=true

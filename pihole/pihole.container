@@ -26,7 +26,7 @@ PublishPort=8003:8003/tcp
 PublishPort=53:53/tcp
 PublishPort=53:53/udp
 
-Volume=%h/containers/storage/pihole/config:/etc/pihole:rw,Z
+Volume=%h/containers/storage/pihole/config:/etc/pihole:rw
 
 [Service]
 Restart=on-failure

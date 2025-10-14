@@ -21,9 +21,9 @@ PublishPort=9091:9091/tcp
 PublishPort=51413:51413/tcp
 PublishPort=51413:51413/udp
 
-Volume=%h/containers/storage/transmission/config:/config:rw,Z
-Volume=%h/containers/storage/transmission/config:/watch:rw,Z
-Volume=/mnt/ssd/torrents:/data/torrents:rw,z
+Volume=%h/containers/storage/transmission/config:/config:rw
+Volume=%h/containers/storage/transmission/config:/watch:rw
+Volume=/mnt/ssd/torrents:/data/torrents:rw
 
 [Service]
 Restart=on-failure

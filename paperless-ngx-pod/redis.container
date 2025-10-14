@@ -12,7 +12,7 @@ Timezone=local
 
 EnvironmentFile=paperless.env
 
-Volume=%h/containers/storage/redis/data:/data:rw,Z
+Volume=%h/containers/storage/redis/data:/data:rw
 
 [Service]
 NoNewPrivileges=true

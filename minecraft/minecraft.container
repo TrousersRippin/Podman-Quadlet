@@ -18,7 +18,7 @@ HostName=minecraft
 Network=proxy.network
 PublishPort=19132:19132/udp
 
-Volume=%h/containers/storage/minecraft/data:/data:rw,Z
+Volume=%h/containers/storage/minecraft/data:/data:rw
 
 [Service]
 NoNewPrivileges=true

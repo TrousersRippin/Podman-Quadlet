@@ -17,8 +17,8 @@ HostName=authelia
 Network=proxy.network
 PublishPort=9094:9094/tcp
 
-Volume=%h/containers/storage/authelia/config:/config:rw,Z
-Volume=%h/containers/storage/authelia/secrets:/run/secrets:ro,Z
+Volume=%h/containers/storage/authelia/config:/config:rw
+Volume=%h/containers/storage/authelia/secrets:/run/secrets:ro
 
 [Service]
 NoNewPrivileges=true

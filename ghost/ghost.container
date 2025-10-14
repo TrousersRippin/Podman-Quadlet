@@ -15,8 +15,8 @@ HostName=ghost
 Network=proxy.network
 PublishPort=2368:2368/tcp
 
-Volume=%h/containers/storage/ghost/config/config.production.json:/var/lib/ghost/config.production.json:ro,Z
-Volume=%h/containers/storage/ghost/config:/var/lib/ghost/content:rw,Z
+Volume=%h/containers/storage/ghost/config/config.production.json:/var/lib/ghost/config.production.json:ro
+Volume=%h/containers/storage/ghost/config:/var/lib/ghost/content:rw
 
 [Service]
 NoNewPrivileges=true

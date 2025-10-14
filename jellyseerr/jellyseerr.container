@@ -16,7 +16,7 @@ HostName=jellyseerr
 Network=proxy.network
 PublishPort=5055:5055/tcp
 
-Volume=%h/containers/storage/jellyseerr/config:/app/config:rw,Z
+Volume=%h/containers/storage/jellyseerr/config:/app/config:rw
 
 [Service]
 NoNewPrivileges=true

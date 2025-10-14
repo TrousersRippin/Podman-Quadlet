@@ -19,7 +19,7 @@ HostName=zigbee2mqtt
 Network=proxy.network
 PublishPort=8888:8888/tcp
 
-Volume=%h/containers/storage/zigbee2mqtt/config:/app/data:rw,Z
+Volume=%h/containers/storage/zigbee2mqtt/config:/app/data:rw
 Volume=/run/udev:/run/udev:ro
 
 [Service]

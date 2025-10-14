@@ -18,10 +18,10 @@ PublishPort=8080:8080/tcp
 PublishPort=80:80/tcp
 PublishPort=443:443/tcp
 
-Volume=%h/containers/storage/traefik/config/traefik.yml:/etc/traefik/traefik.yml:ro,Z
-Volume=%h/containers/storage/traefik/config/dynamic.yml:/etc/traefik/dynamic.yml:rw,Z
-Volume=%h/containers/storage/traefik/config/log:/var/log/traefik:rw,z
-Volume=%h/containers/storage/traefik/data:/etc/traefik/data:rw,Z
+Volume=%h/containers/storage/traefik/config/traefik.yml:/etc/traefik/traefik.yml:ro
+Volume=%h/containers/storage/traefik/config/dynamic.yml:/etc/traefik/dynamic.yml:rw
+Volume=%h/containers/storage/traefik/config/log:/var/log/traefik:rw
+Volume=%h/containers/storage/traefik/data:/etc/traefik/data:rw
 Volume=/%t/podman/podman.sock:/var/run/docker.sock:ro
 
 [Service]

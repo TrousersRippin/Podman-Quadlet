@@ -15,8 +15,8 @@ EnvironmentFile=photoprism.env
 
 User=0:0
 
-Volume=%h/containers/storage/photoprism:/photoprism/storage:rw,Z
-Volume=/mnt/hdd/photos:/photoprism/originals:ro,z
+Volume=%h/containers/storage/photoprism:/photoprism/storage:rw
+Volume=/mnt/hdd/photos:/photoprism/originals:ro
 
 [Service]
 NoNewPrivileges=true

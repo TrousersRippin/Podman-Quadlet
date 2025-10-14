@@ -17,8 +17,8 @@ HostName=navidrome
 Network=proxy.network
 PublishPort=4533:4533/tcp
 
-Volume=%h/containers/storage/navidrome/data:/data:rw,Z
-Volume=/mnt/hdd/music:/music:ro,z
+Volume=%h/containers/storage/navidrome/data:/data:rw
+Volume=/mnt/hdd/music:/music:ro
 
 [Service]
 NoNewPrivileges=true

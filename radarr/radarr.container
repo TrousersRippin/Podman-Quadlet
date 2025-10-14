@@ -16,8 +16,8 @@ HostName=radarr
 Network=proxy.network
 PublishPort=7878:7878/tcp
 
-Volume=%h/containers/storage/radarr/config:/config:rw,Z
-Volume=/mnt/ssd:/data:rw,z
+Volume=%h/containers/storage/radarr/config:/config:rw
+Volume=/mnt/ssd:/data:rw
 
 [Service]
 NoNewPrivileges=true

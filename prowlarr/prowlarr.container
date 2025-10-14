@@ -16,7 +16,7 @@ HostName=prowlarr
 Network=proxy.network
 PublishPort=9696:9696/tcp
 
-Volume=%h/containers/storage/prowlarr/config:/config:rw,Z
+Volume=%h/containers/storage/prowlarr/config:/config:rw
 
 [Service]
 NoNewPrivileges=true

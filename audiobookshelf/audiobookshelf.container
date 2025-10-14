@@ -18,9 +18,9 @@ HostName=audiobookshelf
 Network=proxy.network
 PublishPort=13378:80/tcp
 
-Volume=%h/containers/storage/audiobookshelf/config:/config:rw,Z
-Volume=%h/containers/storage/audiobookshelf/metadata:/metadata:rw,Z
-Volume=/mnt/hdd/audiobooks:/audiobooks:ro,z
+Volume=%h/containers/storage/audiobookshelf/config:/config:rw
+Volume=%h/containers/storage/audiobookshelf/metadata:/metadata:rw
+Volume=/mnt/hdd/audiobooks:/audiobooks:ro
 
 [Service]
 NoNewPrivileges=true

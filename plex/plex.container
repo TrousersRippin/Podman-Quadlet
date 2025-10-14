@@ -27,10 +27,10 @@ PublishPort=32413:32413/udp
 PublishPort=32414:32414/udp
 PublishPort=32469:32469/tcp
 
-Volume=%h/containers/storage/plex:/config:rw,Z
-Volume=%h/containers/storage/plex:/transcode:rw,Z
-Volume=/mnt/hdd:/data:ro,z
-Volume=/mnt/ssd/media:/download:rw,z
+Volume=%h/containers/storage/plex:/config:rw
+Volume=%h/containers/storage/plex:/transcode:rw
+Volume=/mnt/hdd:/data:ro
+Volume=/mnt/ssd/media:/download:rw
 
 [Service]
 NoNewPrivileges=true
