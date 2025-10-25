@@ -5,7 +5,7 @@ After=network-online.target local-fs.target
 
 [Container]
 ContainerName=memos
-Image=docker.io/neosmemo/memos:latest
+Image=docker.io/neosmemo/memos:stable
 AutoUpdate=registry
 Timezone=local
 
