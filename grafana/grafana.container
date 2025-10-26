@@ -17,7 +17,7 @@ PublishPort=3333:3333/tcp
 Volume=%h/containers/storage/grafana/config/grafana.ini:/etc/grafana/grafana.ini:rw
 Volume=%h/containers/storage/grafana/dashboards:/etc/grafana/dashboards:ro
 Volume=%h/containers/storage/grafana/provisioning:/etc/grafana/provisioning:ro
-Volume=grafana.volume:/var/lib/grafana:rw
+Volume=%h/containers/storage/grafana/data:/var/lib/grafana:rw
 
 [Service]
 NoNewPrivileges=true
