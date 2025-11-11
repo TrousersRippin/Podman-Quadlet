@@ -10,9 +10,9 @@ AutoUpdate=registry
 Timezone=local
 
 Environment=CONTAINER_HOST=unix:///run/podman/podman.sock
-
 Exec=--collector.cache_duration 50000
 
+SecurityLabelDisable=true
 UserNS=keep-id:uid=65534
 
 HostName=prometheus-podman-exporter
