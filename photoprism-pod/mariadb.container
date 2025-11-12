@@ -12,7 +12,7 @@ Timezone=local
 
 EnvironmentFile=photoprism.env
 
-Volume=photoprism.volume:/var/lib/mysql:rw
+Volume=photoprism.volume:/var/lib/mysql:rw,Z
 
 [Service]
 NoNewPrivileges=true

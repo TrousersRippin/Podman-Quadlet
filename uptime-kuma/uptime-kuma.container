@@ -13,7 +13,7 @@ HostName=uptime-kuma
 Network=proxy.network
 PublishPort=3001:3001/tcp
 
-Volume=%h/containers/storage/uptime-kuma/config:/app/data:rw
+Volume=%h/containers/storage/uptime-kuma/config:/app/data:rw,Z
 Volume=/%t/podman/podman.sock:/var/run/docker.sock:ro
 
 [Service]

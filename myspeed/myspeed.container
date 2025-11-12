@@ -13,7 +13,7 @@ HostName=myspeed
 Network=proxy.network
 PublishPort=5216:5216/tcp
 
-Volume=%h/containers/storage/myspeed/config:/myspeed/data:rw
+Volume=%h/containers/storage/myspeed/config:/myspeed/data:rw,Z
 
 [Service]
 NoNewPrivileges=true

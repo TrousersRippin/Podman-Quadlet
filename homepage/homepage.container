@@ -17,11 +17,11 @@ HostName=homepage
 Network=proxy.network
 PublishPort=3000:3000/tcp
 
-Volume=%h/containers/storage/homepage/config:/config:rw
-Volume=%h/containers/storage/homepage/icons:/app/public/icons:rw
+Volume=%h/containers/storage/homepage/config:/config:rw,Z
+Volume=%h/containers/storage/homepage/icons:/app/public/icons:rw,Z
 Volume=/%t/podman/podman.sock:/var/run/docker.sock:ro
-Volume=/mnt/hdd:/mnt/hdd:ro
-Volume=/mnt/ssd:/mnt/ssd:ro
+Volume=/mnt/hdd:/mnt/hdd:ro,z
+Volume=/mnt/ssd:/mnt/ssd:ro,z
 
 [Service]
 NoNewPrivileges=true

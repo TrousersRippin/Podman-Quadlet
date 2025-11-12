@@ -17,8 +17,8 @@ HostName=mkvtoolnix
 Network=proxy.network
 PublishPort=5800:5800/tcp
 
-Volume=%h/containers/storage/mkvtoolnix/config:/config:rw
-Volume=/mnt/ssd:/storage:rw
+Volume=%h/containers/storage/mkvtoolnix/config:/config:rw,Z
+Volume=/mnt/ssd:/storage:rw,z
 
 [Service]
 NoNewPrivileges=true

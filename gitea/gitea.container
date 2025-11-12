@@ -15,8 +15,8 @@ HostName=gitea
 Network=proxy.network
 PublishPort=3002:3002/tcp
 
-Volume=%h/containers/storage/gitea/config:/etc/gitea:rw
-Volume=%h/containers/storage/gitea/data:/var/lib/gitea:rw
+Volume=%h/containers/storage/gitea/config:/etc/gitea:rw,Z
+Volume=%h/containers/storage/gitea/data:/var/lib/gitea:rw,Z
 
 [Service]
 NoNewPrivileges=true

@@ -15,10 +15,10 @@ EnvironmentFile=paperless.env
 
 UserNS=keep-id:uid=1000,gid=1000
 
-Volume=%h/containers/storage/paperless/consume:/usr/src/paperless/consume:rw
-Volume=%h/containers/storage/paperless/data:/usr/src/paperless/data:rw
-Volume=%h/containers/storage/paperless/export:/usr/src/paperless/export:rw
-Volume=%h/containers/storage/paperless/media:/usr/src/paperless/media:rw
+Volume=%h/containers/storage/paperless/consume:/usr/src/paperless/consume:rw,Z
+Volume=%h/containers/storage/paperless/data:/usr/src/paperless/data:rw,Z
+Volume=%h/containers/storage/paperless/export:/usr/src/paperless/export:rw,Z
+Volume=%h/containers/storage/paperless/media:/usr/src/paperless/media:rw,Z
 
 [Service]
 Restart=on-failure

@@ -13,7 +13,7 @@ HostName=memos
 Network=proxy.network
 PublishPort=5230:5230/tcp
 
-Volume=%h/containers/storage/memos/config:/var/opt/memos:rw
+Volume=%h/containers/storage/memos/config:/var/opt/memos:rw,Z
 
 [Service]
 NoNewPrivileges=true
