@@ -11,5 +11,6 @@ Ensure you have Git & Podman installed on your system.
 Pull the repo into an empty folder. In some case you need to create an env variables file.
 
 Make the required directories.
-
-*mkdir -p $HOME/.config/containers/systemd $HOME/containers/storage*
+```bash
+mkdir -p $HOME/.config/containers/systemd $HOME/containers/storage
+```
