@@ -9,9 +9,7 @@ Image=docker.io/pihole/pihole:latest
 AutoUpdate=registry
 Timezone=local
 
-Environment=PIHOLE_UID=1000
-Environment=PIHOLE_GID=1000
-Environment=FTLCONF_webserver_api_password=''
+EnvironmentFile=pihole.env
 
 AddCapability=NET_ADMIN
 AddCapability=NET_BIND_SERVICE
