@@ -1,0 +1,27 @@
+[Unit]
+Description=Nebula-Sync
+Wants=network-online.target
+After=network-online.target local-fs.target
+
+[Container]
+ContainerName=nebula-sync
+Image=docker.io/lovelaze/nebula-sync:latest
+AutoUpdate=registry
+Timezone=local
+
+EnvironmentFile=nebula-sync.env
+
+UserNS=keep-id:uid=1000,gid=1000
+
+HostName=nebula-sync
+Network=proxy.network
+
+[Service]
+NoNewPrivileges=true
+Restart=on-failure
+TimeoutStartSec=300
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target default.target
