@@ -1,0 +1,11 @@
+[Unit]
+Description=Proxy Network
+After=network-online.target
+
+[Network]
+NetworkName=proxy
+Subnet=192.168.127.0/24
+Gateway=192.168.127.1
+
+[Install]
+WantedBy=multi-user.target default.target
