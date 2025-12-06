@@ -11,6 +11,8 @@ Timezone=local
 
 EnvironmentFile=pulse.env
 
+HealthCmd=none
+
 HostName=pulse
 Network=proxy.network
 PublishPort=7655:7655/tcp
