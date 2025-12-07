@@ -5,7 +5,7 @@ After=network-online.target local-fs.target podman.socket
 
 [Container]
 ContainerName=uptime-kuma
-Image=docker.io/louislam/uptime-kuma:latest
+Image=docker.io/louislam/uptime-kuma:2
 AutoUpdate=registry
 Timezone=local
 

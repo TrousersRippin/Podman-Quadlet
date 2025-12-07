@@ -13,7 +13,7 @@ EnvironmentFile=vaultwarden.env
 
 HostName=vaultwarden
 Network=proxy.network
-PublishPort=8877:80/tcp
+PublishPort=8877:8877/tcp
 
 Volume=%h/containers/storage/vaultwarden/data:/data:rw,Z
 
