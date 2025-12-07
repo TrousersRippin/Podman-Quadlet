@@ -9,7 +9,7 @@ Image=docker.io/filebrowser/filebrowser:latest
 AutoUpdate=registry
 Timezone=local
 
-Secret=user,type=env,target=FB_USERNAME
+Secret=fb_user,type=env,target=FB_USERNAME
 Secret=fb_password,type=env,target=FB_PASSWORD
 
 HealthCmd=none

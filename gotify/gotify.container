@@ -9,8 +9,7 @@ Image=docker.io/gotify/server:latest
 AutoUpdate=registry
 Timezone=local
 
-Secret=user,type=env,target=GOTIFY_DEFAULTUSER_NAME
-Secret=password,type=env,target=GOTIFY_DEFAULTUSER_PASS
+EnvironmentFile=gotify.env
 
 HostName=gotify
 Network=proxy.network
