@@ -20,7 +20,7 @@ PublishPort=13378:80/tcp
 
 Volume=%h/containers/storage/audiobookshelf/config:/config:rw,Z
 Volume=%h/containers/storage/audiobookshelf/metadata:/metadata:rw,Z
-Volume=/mnt/hdd/audiobooks:/audiobooks:ro,z
+Volume=/mnt/ssd/media/audiobooks:/audiobooks:ro,z
 
 [Service]
 NoNewPrivileges=true
