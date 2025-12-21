@@ -1,6 +1,6 @@
 # My Podman Quadlet files
 
-This repository contains my personal collection of podman quadlet files.
+This repository contains my personal collection of podman-quadlet files to run in rootless mode.
 
 ## Requirements
 
