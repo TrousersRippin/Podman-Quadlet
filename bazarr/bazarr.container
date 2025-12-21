@@ -17,7 +17,7 @@ Network=proxy.network
 PublishPort=6767:6767/tcp
 
 Volume=%h/containers/storage/bazarr/config:/config:rw,Z
-Volume=/mnt/ssd:/data:rw,z
+Volume=/mnt/nvme:/data:rw,z
 
 [Service]
 NoNewPrivileges=true

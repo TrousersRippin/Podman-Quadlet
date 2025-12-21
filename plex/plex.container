@@ -30,7 +30,7 @@ PublishPort=32469:32469/tcp
 Volume=%h/containers/storage/plex:/config:rw,Z
 Volume=%h/containers/storage/plex:/transcode:rw,Z
 Volume=/mnt/hdd:/data:ro,z
-Volume=/mnt/ssd/media:/download:rw,z
+Volume=/mnt/nvme/media:/download:rw,z
 
 [Service]
 NoNewPrivileges=true

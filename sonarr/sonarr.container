@@ -17,7 +17,7 @@ Network=proxy.network
 PublishPort=8989:8989/tcp
 
 Volume=%h/containers/storage/sonarr/config:/config:rw,Z
-Volume=/mnt/ssd:/data:rw,z
+Volume=/mnt/nvme:/data:rw,z
 
 [Service]
 NoNewPrivileges=true

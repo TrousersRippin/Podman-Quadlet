@@ -21,7 +21,7 @@ Volume=%h/containers/storage/homepage/config:/config:rw,Z
 Volume=%h/containers/storage/homepage/icons:/app/public/icons:rw,Z
 Volume=/%t/podman/podman.sock:/var/run/docker.sock:ro
 Volume=/mnt/hdd:/mnt/hdd:ro,z
-Volume=/mnt/ssd:/mnt/ssd:ro,z
+Volume=/mnt/nvme:/mnt/nvme:ro,z
 
 [Service]
 NoNewPrivileges=true
