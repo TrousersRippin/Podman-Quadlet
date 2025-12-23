@@ -10,8 +10,6 @@ Image=docker.io/grafana/grafana:latest
 AutoUpdate=registry
 Timezone=local
 
-Environment=GF_INSTALL_PLUGINS=grafana-clock-panel
-
 HostName=grafana
 Network=proxy.network
 PublishPort=3333:3333/tcp
