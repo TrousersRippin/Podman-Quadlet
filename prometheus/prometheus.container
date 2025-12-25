@@ -18,7 +18,7 @@ PublishPort=9090:9090/tcp
 
 Volume=%h/containers/storage/prometheus/config/prometheus.yaml:/etc/prometheus/prometheus.yaml:ro,Z
 Volume=%h/containers/storage/prometheus/config/alerts.yaml:/etc/prometheus/alerts.yaml:ro,Z
-Volume=prometheus.volume:/prometheus:rw,Z
+Volume=%h/containers/storage/prometheus/:/prometheus:rw
 
 [Service]
 NoNewPrivileges=true
