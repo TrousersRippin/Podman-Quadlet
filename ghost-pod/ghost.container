@@ -1,0 +1,26 @@
+[Unit]
+Description=Ghost
+Wants=network-online.target
+After=network-online.target local-fs.target
+
+[Container]
+Pod=ghost.pod
+ContainerName=ghost
+Image=docker.io/library/ghost:latest
+AutoUpdate=registry
+Timezone=local
+
+UserNS=keep-id:uid=1000,gid=1000
+
+Volume=%h/containers/storage/ghost/config/config.production.json:/var/lib/ghost/config.production.json:ro,Z
+Volume=%h/containers/storage/ghost/config:/var/lib/ghost/content:rw,Z
+
+[Service]
+NoNewPrivileges=true
+Restart=on-failure
+TimeoutStartSec=300
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target default.target

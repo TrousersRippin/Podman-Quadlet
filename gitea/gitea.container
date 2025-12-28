@@ -1,0 +1,29 @@
+[Unit]
+Description=Gitea
+Wants=network-online.target
+After=network-online.target local-fs.target
+
+[Container]
+ContainerName=gitea
+Image=docker.io/gitea/gitea:latest-rootless
+AutoUpdate=registry
+Timezone=local
+
+UserNS=keep-id:uid=1000,gid=1000
+
+HostName=gitea
+Network=proxy.network
+PublishPort=3002:3002/tcp
+
+Volume=%h/containers/storage/gitea/config:/etc/gitea:rw,Z
+Volume=%h/containers/storage/gitea/data:/var/lib/gitea:rw,Z
+
+[Service]
+NoNewPrivileges=true
+Restart=on-failure
+TimeoutStartSec=300
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target default.target

@@ -1,0 +1,31 @@
+[Unit]
+Description=MKVtoolNix
+Wants=network-online.target
+After=network-online.target local-fs.target
+
+[Container]
+ContainerName=mkvtoolnix
+Image=docker.io/jlesage/mkvtoolnix:latest
+AutoUpdate=registry
+Timezone=local
+
+Environment=DARK_MODE=1
+Environment=USER_ID=0
+Environment=GROUP_ID=0
+
+HostName=mkvtoolnix
+Network=proxy.network
+PublishPort=5800:5800/tcp
+
+Volume=%h/containers/storage/mkvtoolnix/config:/config:rw,Z
+Volume=/mnt/nvme:/storage:rw,z
+
+[Service]
+NoNewPrivileges=true
+Restart=on-failure
+TimeoutStartSec=300
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target default.target

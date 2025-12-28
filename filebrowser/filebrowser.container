@@ -1,0 +1,35 @@
+[Unit]
+Description=Filebrowser
+Wants=network-online.target
+After=network-online.target local-fs.target
+
+[Container]
+ContainerName=filebrowser
+Image=docker.io/filebrowser/filebrowser:latest
+AutoUpdate=registry
+Timezone=local
+
+Secret=fb_user,type=env,target=FB_USERNAME
+Secret=fb_password,type=env,target=FB_PASSWORD
+
+HealthCmd=none
+
+UserNS=keep-id:uid=1000,gid=1000
+
+HostName=filebrowser
+Network=proxy.network
+PublishPort=8005:8005/tcp
+
+Volume=%h/containers/storage/filebrowser/config:/config:rw,Z
+Volume=%h/containers/storage/filebrowser/database:/database:rw,Z
+Volume=/:/srv:rw,z
+
+[Service]
+NoNewPrivileges=true
+Restart=on-failure
+TimeoutStartSec=300
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target default.target

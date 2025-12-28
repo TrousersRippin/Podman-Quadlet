@@ -1,0 +1,28 @@
+[Unit]
+Description=Gotify
+Wants=network-online.target
+After=network-online.target local-fs.target
+
+[Container]
+ContainerName=gotify
+Image=docker.io/gotify/server:latest
+AutoUpdate=registry
+Timezone=local
+
+EnvironmentFile=gotify.env
+
+HostName=gotify
+Network=proxy.network
+PublishPort=8001:8001/tcp
+
+Volume=%h/containers/storage/gotify/config:/app/data:rw,Z
+
+[Service]
+NoNewPrivileges=true
+Restart=on-failure
+TimeoutStartSec=300
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target default.target

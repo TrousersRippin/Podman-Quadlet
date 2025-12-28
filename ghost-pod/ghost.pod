@@ -1,0 +1,6 @@
+[Pod]
+Network=proxy.network
+PodName=ghost
+PublishPort=2368:2368/tcp
+PublishPort=3210:3210/tcp
+PublishPort=5432:5432/tcp

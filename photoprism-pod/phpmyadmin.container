@@ -1,0 +1,28 @@
+[Unit]
+Description=phpMyAdmin
+Wants=network-online.target
+After=network-online.target local-fs.target mariadb.service
+Requires=mariadb.service
+
+[Container]
+Pod=photoprism.pod
+ContainerName=phpmyadmin
+Image=docker.io/library/phpmyadmin:latest
+AutoUpdate=registry
+Timezone=local
+
+EnvironmentFile=photoprism.env
+
+Volume=%h/containers/storage/phpmyadmin/apache2.conf:/etc/apache2/apache2.conf:ro,Z
+Volume=%h/containers/storage/phpmyadmin/sessions:/sessions:rw,Z
+Volume=%h/containers/storage/phpmyadmin/themes/boodark-nord:/var/www/html/themes/boodark-nord:ro,Z
+
+[Service]
+NoNewPrivileges=true
+Restart=on-failure
+TimeoutStartSec=300
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target default.target

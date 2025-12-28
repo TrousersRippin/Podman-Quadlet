@@ -1,0 +1,25 @@
+[Unit]
+Description=PostgreSQL
+Wants=network-online.target
+After=network-online.target local-fs.target
+
+[Container]
+Pod=ghost.pod
+ContainerName=postgres
+Image=docker.io/library/postgres:alpine
+AutoUpdate=registry
+Timezone=local
+
+EnvironmentFile=ghost.env
+
+Volume=umami.volume:/var/lib/postgresql:rw,Z
+
+[Service]
+NoNewPrivileges=true
+Restart=on-failure
+TimeoutStartSec=300
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target default.target

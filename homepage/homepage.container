@@ -1,0 +1,34 @@
+[Unit]
+Description=Homepage
+Wants=network-online.target
+After=network-online.target local-fs.target podman.socket
+
+[Container]
+ContainerName=homepage
+Image=docker.io/gethomepage/homepage:latest
+AutoUpdate=registry
+Timezone=local
+
+EnvironmentFile=homepage.env
+
+HealthCmd=none
+
+HostName=homepage
+Network=proxy.network
+PublishPort=3000:3000/tcp
+
+Volume=%h/containers/storage/homepage/config:/config:rw,Z
+Volume=%h/containers/storage/homepage/icons:/app/public/icons:rw,Z
+Volume=/%t/podman/podman.sock:/var/run/docker.sock:ro
+Volume=/mnt/hdd:/mnt/hdd:ro,z
+Volume=/mnt/nvme:/mnt/nvme:ro,z
+
+[Service]
+NoNewPrivileges=true
+Restart=on-failure
+TimeoutStartSec=300
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target default.target

@@ -1,0 +1,28 @@
+[Unit]
+Description=Vaultwarden
+Wants=network-online.target
+After=network-online.target local-fs.target
+
+[Container]
+ContainerName=vaultwarden
+Image=docker.io/vaultwarden/server:latest
+AutoUpdate=registry
+Timezone=local
+
+EnvironmentFile=vaultwarden.env
+
+HostName=vaultwarden
+Network=proxy.network
+PublishPort=8877:8877/tcp
+
+Volume=%h/containers/storage/vaultwarden/data:/data:rw,Z
+
+[Service]
+NoNewPrivileges=true
+Restart=on-failure
+TimeoutStartSec=300
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target default.target

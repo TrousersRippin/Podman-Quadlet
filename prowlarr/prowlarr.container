@@ -1,0 +1,29 @@
+[Unit]
+Description=Prowlarr
+Wants=network-online.target
+After=network-online.target local-fs.target
+
+[Container]
+ContainerName=prowlarr
+Image=lscr.io/linuxserver/prowlarr:latest
+AutoUpdate=registry
+Timezone=local
+
+Environment=PUID=0
+Environment=PGID=0
+
+HostName=prowlarr
+Network=proxy.network
+PublishPort=9696:9696/tcp
+
+Volume=%h/containers/storage/prowlarr/config:/config:rw,Z
+
+[Service]
+NoNewPrivileges=true
+Restart=on-failure
+TimeoutStartSec=300
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target default.target

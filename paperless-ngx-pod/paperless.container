@@ -1,0 +1,30 @@
+[Unit]
+Description=Paperless-ngx
+Wants=network-online.target
+After=network-online.target local-fs.target redis.service
+Requires=redis.service
+
+[Container]
+Pod=paperless.pod
+ContainerName=paperless-ngx
+Image=docker.io/paperlessngx/paperless-ngx:latest
+AutoUpdate=registry
+Timezone=local
+
+EnvironmentFile=paperless.env
+
+UserNS=keep-id:uid=1000,gid=1000
+
+Volume=%h/containers/storage/paperless/consume:/usr/src/paperless/consume:rw,Z
+Volume=%h/containers/storage/paperless/data:/usr/src/paperless/data:rw,Z
+Volume=%h/containers/storage/paperless/export:/usr/src/paperless/export:rw,Z
+Volume=%h/containers/storage/paperless/media:/usr/src/paperless/media:rw,Z
+
+[Service]
+Restart=on-failure
+TimeoutStartSec=300
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target default.target

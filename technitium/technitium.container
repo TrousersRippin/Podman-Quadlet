@@ -1,0 +1,30 @@
+[Unit]
+Description=Technitium
+Wants=network-online.target
+After=network-online.target local-fs.target
+
+[Container]
+ContainerName=technitium
+Image=docker.io/technitium/dns-server:latest
+AutoUpdate=registry
+Timezone=local
+
+EnvironmentFile=technitium.env
+
+HostName=technitium
+Network=host
+PublishPort=5380:5380/tcp
+PublishPort=53:53/tcp
+PublishPort=53:53/udp
+PublishPort=53443:53443/tcp
+
+Volume=%h/containers/storage/technitium/config:/etc/dns:rw,Z
+
+[Service]
+Restart=on-failure
+TimeoutStartSec=300
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target default.target

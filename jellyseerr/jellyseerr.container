@@ -1,0 +1,29 @@
+[Unit]
+Description=Jellyseerr
+Wants=network-online.target
+After=network-online.target local-fs.target
+
+[Container]
+ContainerName=jellyseerr
+Image=docker.io/fallenbagel/jellyseerr:latest
+AutoUpdate=registry
+Timezone=local
+
+Environment=PUID=0
+Environment=PGID=0
+
+HostName=jellyseerr
+Network=proxy.network
+PublishPort=5055:5055/tcp
+
+Volume=%h/containers/storage/jellyseerr/config:/app/config:rw,Z
+
+[Service]
+NoNewPrivileges=true
+Restart=on-failure
+TimeoutStartSec=300
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target default.target

@@ -1,0 +1,29 @@
+[Unit]
+Description=Tautulli
+Wants=network-online.target
+After=network-online.target local-fs.target
+
+[Container]
+ContainerName=tautulli
+Image=docker.io/tautulli/tautulli:latest
+AutoUpdate=registry
+Timezone=local
+
+Environment=PUID=0
+Environment=PGID=0
+
+HostName=tautulli
+Network=proxy.network
+PublishPort=8181:8181/tcp
+
+Volume=%h/containers/storage/tautulli/config:/config:rw,Z
+
+[Service]
+NoNewPrivileges=true
+Restart=on-failure
+TimeoutStartSec=300
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target default.target

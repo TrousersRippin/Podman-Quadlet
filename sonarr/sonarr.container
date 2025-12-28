@@ -1,0 +1,30 @@
+[Unit]
+Description=Sonarr
+Wants=network-online.target
+After=network-online.target local-fs.target
+
+[Container]
+ContainerName=sonarr
+Image=lscr.io/linuxserver/sonarr:latest
+AutoUpdate=registry
+Timezone=local
+
+Environment=PUID=0
+Environment=PGID=0
+
+HostName=sonarr
+Network=proxy.network
+PublishPort=8989:8989/tcp
+
+Volume=%h/containers/storage/sonarr/config:/config:rw,Z
+Volume=/mnt/nvme:/data:rw,z
+
+[Service]
+NoNewPrivileges=true
+Restart=on-failure
+TimeoutStartSec=300
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target default.target

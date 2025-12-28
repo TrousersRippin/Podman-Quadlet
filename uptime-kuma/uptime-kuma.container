@@ -1,0 +1,27 @@
+[Unit]
+Description=Uptime-Kuma
+Wants=network-online.target
+After=network-online.target local-fs.target podman.socket
+
+[Container]
+ContainerName=uptime-kuma
+Image=docker.io/louislam/uptime-kuma:2
+AutoUpdate=registry
+Timezone=local
+
+HostName=uptime-kuma
+Network=proxy.network
+PublishPort=3001:3001/tcp
+
+Volume=%h/containers/storage/uptime-kuma/config:/app/data:rw,Z
+Volume=/%t/podman/podman.sock:/var/run/docker.sock:ro
+
+[Service]
+NoNewPrivileges=true
+Restart=on-failure
+TimeoutStartSec=300
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target default.target

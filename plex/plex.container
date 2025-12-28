@@ -1,0 +1,43 @@
+[Unit]
+Description=Plex Media Server
+Wants=network-online.target
+After=network-online.target local-fs.target
+
+[Container]
+ContainerName=plex
+Image=docker.io/plexinc/pms-docker:latest
+AutoUpdate=registry
+Timezone=local
+
+Environment=PLEX_UID=0
+Environment=PLEX_GID=0
+Environment=PLEX_VERSION=docker
+
+HealthCmd=none
+
+HostName=plex
+Network=host
+PublishPort=32400:32400/tcp
+PublishPort=1900:1900/udp
+PublishPort=3005:3005/tcp
+PublishPort=8324:8324/tcp
+PublishPort=32410:32410/udp
+PublishPort=32412:32412/udp
+PublishPort=32413:32413/udp
+PublishPort=32414:32414/udp
+PublishPort=32469:32469/tcp
+
+Volume=%h/containers/storage/plex:/config:rw,Z
+Volume=%h/containers/storage/plex:/transcode:rw,Z
+Volume=/mnt/hdd:/data:ro,z
+Volume=/mnt/nvme/media:/download:rw,z
+
+[Service]
+NoNewPrivileges=true
+Restart=on-failure
+TimeoutStartSec=300
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target default.target

@@ -1,0 +1,6 @@
+[Unit]
+Description=Umami Data Volume
+
+[Volume]
+Label=app=umami-data
+VolumeName=umami-data

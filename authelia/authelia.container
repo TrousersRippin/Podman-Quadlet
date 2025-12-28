@@ -1,0 +1,31 @@
+[Unit]
+Description=Authelia
+Wants=network-online.target
+After=network-online.target local-fs.target
+
+[Container]
+ContainerName=authelia
+Image=docker.io/authelia/authelia:latest
+AutoUpdate=registry
+Timezone=local
+
+Environment=AUTHELIA_IDENTITY_VALIDATION_RESET_PASSWORD_JWT_SECRET_FILE=/run/secrets/jwt_secret
+
+User=0:0
+
+HostName=authelia
+Network=proxy.network
+PublishPort=9094:9094/tcp
+
+Volume=%h/containers/storage/authelia/config:/config:rw,Z
+Volume=%h/containers/storage/authelia/secrets:/run/secrets:ro,Z
+
+[Service]
+NoNewPrivileges=true
+Restart=on-failure
+TimeoutStartSec=300
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target default.target

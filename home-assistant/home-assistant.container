@@ -1,0 +1,28 @@
+[Unit]
+Description=Home-Assistant
+Wants=network-online.target
+After=network-online.target local-fs.target
+
+[Container]
+ContainerName=home-assistant
+Image=docker.io/homeassistant/home-assistant:latest
+AutoUpdate=registry
+Timezone=local
+
+UserNS=keep-id:uid=1000,gid=1000
+
+HostName=home-assistant
+Network=proxy.network
+PublishPort=8123:8123/tcp
+
+Volume=%h/containers/storage/home-assistant/config:/config:rw,Z
+Volume=/run/dbus:/run/dbus:ro
+
+[Service]
+Restart=on-failure
+TimeoutStartSec=300
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target default.target

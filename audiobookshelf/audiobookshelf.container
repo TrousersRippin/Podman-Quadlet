@@ -1,0 +1,33 @@
+[Unit]
+Description=Audiobookshelf
+Wants=network-online.target
+After=network-online.target local-fs.target
+
+[Container]
+ContainerName=audiobookshelf
+Image=docker.io/advplyr/audiobookshelf:latest
+AutoUpdate=registry
+Timezone=local
+
+Environment=ACCESS_TOKEN_EXPIRY=604800
+Environment=REFRESH_TOKEN_EXPIRY=2592000
+
+User=0:0
+
+HostName=audiobookshelf
+Network=proxy.network
+PublishPort=13378:80/tcp
+
+Volume=%h/containers/storage/audiobookshelf/config:/config:rw,Z
+Volume=%h/containers/storage/audiobookshelf/metadata:/metadata:rw,Z
+Volume=/mnt/hdd/audiobooks:/audiobooks:ro,z
+
+[Service]
+NoNewPrivileges=true
+Restart=on-failure
+TimeoutStartSec=300
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target default.target

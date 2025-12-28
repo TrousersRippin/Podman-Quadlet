@@ -1,0 +1,24 @@
+[Unit]
+Description=Umami
+Wants=network-online.target
+After=network-online.target local-fs.target postgres.service
+Requires=postgres.service
+
+[Container]
+Pod=ghost.pod
+ContainerName=umami
+Image=docker.io/umamisoftware/umami:latest
+AutoUpdate=registry
+Timezone=local
+
+EnvironmentFile=ghost.env
+
+[Service]
+NoNewPrivileges=true
+Restart=on-failure
+TimeoutStartSec=300
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target default.target

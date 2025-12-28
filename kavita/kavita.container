@@ -1,0 +1,27 @@
+[Unit]
+Description=Kavita
+Wants=network-online.target
+After=network-online.target local-fs.target
+
+[Container]
+ContainerName=kavita
+Image=docker.io/jvmilazz0/kavita:latest
+AutoUpdate=registry
+Timezone=local
+
+HostName=kavita
+Network=proxy.network
+PublishPort=5000:5000/tcp
+
+Volume=%h/containers/storage/kavita/config:/kavita/config:rw,Z
+Volume=/mnt/hdd/books:/books:ro,z
+
+[Service]
+NoNewPrivileges=true
+Restart=on-failure
+TimeoutStartSec=300
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target default.target

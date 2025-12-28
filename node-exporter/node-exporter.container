@@ -1,0 +1,28 @@
+[Unit]
+Description=Node-Exporter
+Wants=network-online.target
+After=network-online.target local-fs.target
+
+[Container]
+ContainerName=node-exporter
+Image=docker.io/prom/node-exporter:latest
+AutoUpdate=registry
+Timezone=local
+
+Exec=--path.rootfs=/host
+
+HostName=node-exporter
+Network=proxy.network
+PublishPort=9100:9100/tcp
+
+Volume=/:/host:ro,rslave
+
+[Service]
+NoNewPrivileges=true
+Restart=on-failure
+TimeoutStartSec=300
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target default.target

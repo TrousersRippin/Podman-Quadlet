@@ -1,0 +1,6 @@
+[Pod]
+Network=proxy.network
+PodName=photoprism
+PublishPort=2342:2342/tcp
+PublishPort=3306:3306/tcp
+PublishPort=8765:80/tcp

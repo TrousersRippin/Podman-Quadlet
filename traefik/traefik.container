@@ -1,0 +1,35 @@
+[Unit]
+Description=Traefik
+Wants=network-online.target
+After=network-online.target local-fs.target podman.socket
+
+[Container]
+ContainerName=traefik
+Image=docker.io/library/traefik:latest
+AutoUpdate=registry
+Timezone=local
+
+Secret=email,type=env,target=CF_API_EMAIL
+Secret=cf_token,type=env,target=CF_DNS_API_TOKEN
+
+HostName=traefik
+Network=proxy.network
+PublishPort=8080:8080/tcp
+PublishPort=80:80/tcp
+PublishPort=443:443/tcp
+
+Volume=%h/containers/storage/traefik/config/traefik.yml:/etc/traefik/traefik.yml:ro,Z
+Volume=%h/containers/storage/traefik/config/dynamic.yml:/etc/traefik/dynamic.yml:rw,Z
+Volume=%h/containers/storage/traefik/config/log:/var/log/traefik:rw,z
+Volume=%h/containers/storage/traefik/data:/etc/traefik/data:rw,Z
+Volume=/%t/podman/podman.sock:/var/run/docker.sock:ro
+
+[Service]
+NoNewPrivileges=true
+Restart=on-failure
+TimeoutStartSec=300
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target default.target

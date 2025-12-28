@@ -1,0 +1,26 @@
+[Unit]
+Description=Unpoller
+Wants=network-online.target
+After=network-online.target local-fs.target
+
+[Container]
+ContainerName=unpoller
+Image=ghcr.io/unpoller/unpoller:latest
+AutoUpdate=registry
+Timezone=local
+
+EnvironmentFile=unpoller.env
+
+HostName=unpoller
+Network=proxy.network
+PublishPort=9130:9130/tcp
+
+[Service]
+NoNewPrivileges=true
+Restart=on-failure
+TimeoutStartSec=300
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target default.target

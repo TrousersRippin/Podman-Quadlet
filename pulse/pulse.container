@@ -1,0 +1,30 @@
+[Unit]
+Description=Pulse
+Wants=network-online.target
+After=network-online.target local-fs.target
+
+[Container]
+ContainerName=pulse
+Image=docker.io/rcourtman/pulse:latest
+AutoUpdate=registry
+Timezone=local
+
+EnvironmentFile=pulse.env
+
+HealthCmd=none
+
+HostName=pulse
+Network=proxy.network
+PublishPort=7655:7655/tcp
+
+Volume=%h/containers/storage/pulse/data:/data:rw,Z
+
+[Service]
+NoNewPrivileges=true
+Restart=on-failure
+TimeoutStartSec=300
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target default.target

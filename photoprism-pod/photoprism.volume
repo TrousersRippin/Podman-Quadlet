@@ -1,0 +1,6 @@
+[Unit]
+Description=Photoprism Data Volume
+
+[Volume]
+Label=app=photoprism-data
+VolumeName=photoprism-data

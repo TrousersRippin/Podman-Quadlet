@@ -1,0 +1,33 @@
+[Unit]
+Description=Zigbee2MQTT
+Wants=network-online.target
+After=network-online.target local-fs.target mosquitto.service
+
+[Container]
+ContainerName=zigbee2mqtt
+Image=docker.io/koenkk/zigbee2mqtt:latest
+AutoUpdate=registry
+Timezone=local
+
+Environment=Z2M_WATCHDOG=1
+
+PodmanArgs=--group-add keep-groups
+
+AddDevice=/dev/ttyUSB0:/dev/ttyUSB0
+
+HostName=zigbee2mqtt
+Network=proxy.network
+PublishPort=8888:8888/tcp
+
+Volume=%h/containers/storage/zigbee2mqtt/config:/app/data:rw,Z
+Volume=/run/udev:/run/udev:ro
+
+[Service]
+NoNewPrivileges=true
+Restart=on-failure
+TimeoutStartSec=300
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target default.target

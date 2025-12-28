@@ -1,0 +1,33 @@
+[Unit]
+Description=Jellyfin Media Server
+Wants=network-online.target
+After=network-online.target local-fs.target
+
+[Container]
+ContainerName=jellyfin
+Image=docker.io/jellyfin/jellyfin:latest
+AutoUpdate=registry
+Timezone=local
+
+HealthCmd=none
+
+UserNS=keep-id:uid=1000,gid=1000
+
+HostName=jellyfin
+Network=proxy.network
+PublishPort=8096:8096/tcp
+
+Volume=%h/containers/storage/jellyfin/cache:/cache:rw,Z
+Volume=%h/containers/storage/jellyfin/config:/config:rw,Z
+Volume=/mnt/hdd:/data:ro,z
+Volume=/mnt/nvme/media:/download:rw,z
+
+[Service]
+NoNewPrivileges=true
+Restart=on-failure
+TimeoutStartSec=300
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target default.target

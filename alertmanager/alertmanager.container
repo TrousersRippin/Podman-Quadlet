@@ -1,0 +1,29 @@
+[Unit]
+Description=Alertmanager
+Wants=network-online.target
+After=network-online.target local-fs.target
+
+[Container]
+ContainerName=alertmanager
+Image=docker.io/prom/alertmanager:latest
+AutoUpdate=registry
+Timezone=local
+
+Exec=--config.file=/etc/alertmanager/alertmanager.yaml
+
+HostName=alertmanager
+Network=proxy.network
+PublishPort=9093:9093/tcp
+
+Volume=%h/containers/storage/alertmanager/config/alertmanager.yaml:/etc/alertmanager/alertmanager.yaml:ro,Z
+Volume=%h/containers/storage/alertmanager:/alertmanager:rw,Z
+
+[Service]
+NoNewPrivileges=true
+Restart=on-failure
+TimeoutStartSec=300
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target default.target

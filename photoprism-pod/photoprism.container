@@ -1,0 +1,29 @@
+[Unit]
+Description=PhotoPrism
+Wants=network-online.target
+After=network-online.target local-fs.target mariadb.service
+Requires=mariadb.service
+
+[Container]
+Pod=photoprism.pod
+ContainerName=photoprism
+Image=docker.io/photoprism/photoprism:latest
+AutoUpdate=registry
+Timezone=local
+
+EnvironmentFile=photoprism.env
+
+User=0:0
+
+Volume=%h/containers/storage/photoprism:/photoprism/storage:rw,Z
+Volume=/mnt/hdd/photos:/photoprism/originals:ro,z
+
+[Service]
+NoNewPrivileges=true
+Restart=on-failure
+TimeoutStartSec=300
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target default.target
