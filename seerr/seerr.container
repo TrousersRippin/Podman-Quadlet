@@ -1,22 +1,22 @@
 [Unit]
-Description=Overseerr
+Description=Seerr
 Wants=network-online.target
 After=network-online.target local-fs.target
 
 [Container]
-ContainerName=overseerr
-Image=lscr.io/linuxserver/overseerr:latest
+ContainerName=seerr
+Image=ghcr.io/seerr-team/seerr:latest
 AutoUpdate=registry
 Timezone=local
 
 Environment=PUID=0
 Environment=PGID=0
 
-HostName=overseerr
+HostName=seerr
 Network=proxy.network
 PublishPort=5055:5055/tcp
 
-Volume=%h/containers/storage/overseerr/config:/config:rw,Z
+Volume=%h/containers/storage/seerr/config:/config:rw,Z
 
 [Service]
 NoNewPrivileges=true
