@@ -1,20 +1,24 @@
 [Unit]
-Description=Nebula-Sync
+Description=Gatus
 Wants=network-online.target
 After=network-online.target local-fs.target
 
 [Container]
-ContainerName=nebula-sync
-Image=docker.io/lovelaze/nebula-sync:latest
+ContainerName=gatus
+Image=ghcr.io/twin/gatus:latest
 AutoUpdate=registry
 Timezone=local
 
-EnvironmentFile=nebula-sync.env
+Environment=GATUS_CONFIG_PATH=/config
+Environment=GATUS_PORT=8899
 
 UserNS=keep-id:uid=1000,gid=1000
 
-HostName=nebula-sync
+HostName=gatus
 Network=proxy.network
+PublishPort=8899:8899/tcp
+
+Volume=%h/containers/storage/gatus/config:/config:ro,Z
 
 [Service]
 NoNewPrivileges=true
