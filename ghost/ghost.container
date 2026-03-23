@@ -1,23 +1,22 @@
 [Unit]
-Description=Mosquitto
+Description=Ghost
 Wants=network-online.target
 After=network-online.target local-fs.target
 
 [Container]
-ContainerName=mosquitto
-Image=docker.io/library/eclipse-mosquitto:latest
+ContainerName=ghost
+Image=docker.io/library/ghost:latest
 AutoUpdate=registry
 Timezone=local
 
 UserNS=keep-id:uid=1000,gid=1000
 
-HostName=mosquitto
+HostName=ghost
 Network=proxy.network
-PublishPort=1883:1883/tcp
+PublishPort=2368:2368/tcp
 
-Volume=%h/containers/storage/mosquitto/config:/mosquitto/config:rw,Z
-Volume=%h/containers/storage/mosquitto/config/log:/mosquitto/log:rw,Z
-Volume=%h/containers/storage/mosquitto/data:/mosquitto/data:rw,Z
+Volume=%h/containers/storage/ghost/config/config.production.json:/var/lib/ghost/config.production.json:ro,Z
+Volume=%h/containers/storage/ghost/config:/var/lib/ghost/content:rw,Z
 
 [Service]
 NoNewPrivileges=true

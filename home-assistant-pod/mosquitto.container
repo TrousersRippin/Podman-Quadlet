@@ -1,19 +1,20 @@
 [Unit]
-Description=Ghost
+Description=Mosquitto
 Wants=network-online.target
 After=network-online.target local-fs.target
 
 [Container]
-Pod=ghost.pod
-ContainerName=ghost
-Image=docker.io/library/ghost:latest
+Pod=home-assistant.pod
+ContainerName=mosquitto
+Image=docker.io/library/eclipse-mosquitto:latest
 AutoUpdate=registry
 Timezone=local
 
 UserNS=keep-id:uid=1000,gid=1000
 
-Volume=%h/containers/storage/ghost/config/config.production.json:/var/lib/ghost/config.production.json:ro,Z
-Volume=%h/containers/storage/ghost/config:/var/lib/ghost/content:rw,Z
+Volume=%h/containers/storage/mosquitto/config:/mosquitto/config:rw,Z
+Volume=%h/containers/storage/mosquitto/config/log:/mosquitto/log:rw,Z
+Volume=%h/containers/storage/mosquitto/data:/mosquitto/data:rw,Z
 
 [Service]
 NoNewPrivileges=true

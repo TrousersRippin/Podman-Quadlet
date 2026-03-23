@@ -1,18 +1,16 @@
 [Unit]
-Description=PostgreSQL
+Description=Umami
 Wants=network-online.target
-After=network-online.target local-fs.target
+After=network-online.target local-fs.target postgres.service
+Requires=postgres.service
 
 [Container]
-Pod=ghost.pod
-ContainerName=postgres
-Image=docker.io/library/postgres:alpine
+ContainerName=umami
+Image=ghcr.io/umami-software/umami:latest
 AutoUpdate=registry
 Timezone=local
 
-EnvironmentFile=ghost.env
-
-Volume=umami.volume:/var/lib/postgresql:rw,Z
+EnvironmentFile=umami.env
 
 [Service]
 NoNewPrivileges=true
