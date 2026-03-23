@@ -10,14 +10,13 @@ Image=docker.io/prom/prometheus:latest
 AutoUpdate=registry
 Timezone=local
 
-Exec=--config.file=/etc/prometheus/prometheus.yaml --web.enable-lifecycle
+Exec=--config.file=/etc/prometheus/prometheus.yaml --web.enable-remote-write-receiver --web.enable-lifecycle
 
 HostName=prometheus
 Network=proxy.network
 PublishPort=9090:9090/tcp
 
 Volume=%h/containers/storage/prometheus/config/prometheus.yaml:/etc/prometheus/prometheus.yaml:ro,Z
-Volume=%h/containers/storage/prometheus/config/alerts.yaml:/etc/prometheus/alerts.yaml:ro,Z
 Volume=%h/containers/storage/prometheus/:/prometheus:rw
 
 [Service]

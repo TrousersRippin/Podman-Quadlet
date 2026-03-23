@@ -9,8 +9,7 @@ Image=ghcr.io/twin/gatus:latest
 AutoUpdate=registry
 Timezone=local
 
-Environment=GATUS_CONFIG_PATH=/config
-Environment=GATUS_PORT=8899
+EnvironmentFile=gatus.env
 
 UserNS=keep-id:uid=1000,gid=1000
 

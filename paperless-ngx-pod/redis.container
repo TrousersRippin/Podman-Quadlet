@@ -5,7 +5,7 @@ After=network-online.target local-fs.target
 
 [Container]
 Pod=paperless.pod
-ContainerName=redis
+ContainerName=paperless-redis
 Image=docker.io/library/redis:latest
 AutoUpdate=registry
 Timezone=local
