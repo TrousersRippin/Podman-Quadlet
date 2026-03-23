@@ -5,9 +5,13 @@ After=network-online.target local-fs.target
 
 [Container]
 ContainerName=memos
-Image=docker.io/neosmemo/memos:stable
+Image=ghcr.io/usememos/memos:stable
 AutoUpdate=registry
 Timezone=local
+
+EnvironmentFile=memos.env
+
+UserNS=keep-id:uid=1000,gid=1000
 
 HostName=memos
 Network=proxy.network

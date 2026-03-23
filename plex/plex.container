@@ -1,5 +1,5 @@
 [Unit]
-Description=Plex Media Server
+Description=Plex
 Wants=network-online.target
 After=network-online.target local-fs.target
 

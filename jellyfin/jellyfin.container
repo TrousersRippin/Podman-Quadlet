@@ -1,5 +1,5 @@
 [Unit]
-Description=Jellyfin Media Server
+Description=Jellyfin
 Wants=network-online.target
 After=network-online.target local-fs.target
 
