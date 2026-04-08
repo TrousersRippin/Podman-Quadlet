@@ -7,7 +7,6 @@ After=network-online.target local-fs.target
 ContainerName=authelia
 Image=docker.io/authelia/authelia:latest
 AutoUpdate=registry
-Timezone=local
 
 Environment=AUTHELIA_IDENTITY_VALIDATION_RESET_PASSWORD_JWT_SECRET_FILE=/run/secrets/jwt_secret
 Environment=AUTHELIA_SESSION_SECRET_FILE=/run/secrets/session_secret

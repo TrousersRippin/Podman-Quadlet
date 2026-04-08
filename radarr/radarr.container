@@ -7,7 +7,6 @@ After=network-online.target local-fs.target
 ContainerName=radarr
 Image=lscr.io/linuxserver/radarr:latest
 AutoUpdate=registry
-Timezone=local
 
 Environment=PUID=0
 Environment=PGID=0

@@ -7,7 +7,6 @@ After=network-online.target local-fs.target
 ContainerName=syncthing
 Image=docker.io/syncthing/syncthing:latest
 AutoUpdate=registry
-Timezone=local
 
 UserNS=keep-id:uid=1000,gid=1000
 

@@ -7,7 +7,6 @@ After=network-online.target local-fs.target
 ContainerName=audiobookshelf
 Image=docker.io/advplyr/audiobookshelf:latest
 AutoUpdate=registry
-Timezone=local
 
 Environment=ACCESS_TOKEN_EXPIRY=604800
 Environment=REFRESH_TOKEN_EXPIRY=2592000

@@ -7,7 +7,6 @@ After=network-online.target local-fs.target
 ContainerName=myspeed
 Image=docker.io/germannewsmaker/myspeed:latest
 AutoUpdate=registry
-Timezone=local
 
 HostName=myspeed
 Network=proxy.network

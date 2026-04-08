@@ -8,7 +8,6 @@ Requires=node-exporter.service
 ContainerName=prometheus
 Image=docker.io/prom/prometheus:latest
 AutoUpdate=registry
-Timezone=local
 
 Exec=--config.file=/etc/prometheus/prometheus.yaml --web.enable-remote-write-receiver --web.enable-lifecycle
 

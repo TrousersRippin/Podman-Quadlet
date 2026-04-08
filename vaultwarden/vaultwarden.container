@@ -7,7 +7,6 @@ After=network-online.target local-fs.target
 ContainerName=vaultwarden
 Image=docker.io/vaultwarden/server:latest
 AutoUpdate=registry
-Timezone=local
 
 EnvironmentFile=vaultwarden.env
 

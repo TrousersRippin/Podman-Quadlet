@@ -7,7 +7,6 @@ After=network-online.target local-fs.target podman.socket
 ContainerName=homepage
 Image=docker.io/gethomepage/homepage:latest
 AutoUpdate=registry
-Timezone=local
 
 EnvironmentFile=homepage.env
 
@@ -19,7 +18,7 @@ PublishPort=3000:3000/tcp
 
 Volume=%h/containers/storage/homepage/config:/config:rw,Z
 Volume=%h/containers/storage/homepage/icons:/app/public/icons:rw,Z
-Volume=/%t/podman/podman.sock:/var/run/docker.sock:ro
+Volume=%t/podman/podman.sock:/var/run/docker.sock:ro
 Volume=/mnt/hdd:/mnt/hdd:ro,z
 Volume=/mnt/nvme:/mnt/nvme:ro,z
 

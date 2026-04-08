@@ -7,18 +7,18 @@ After=network-online.target local-fs.target podman.socket
 ContainerName=dozzle
 Image=docker.io/amir20/dozzle:latest
 AutoUpdate=registry
-Timezone=local
+SecurityLabelDisable=true
 
 Environment=DOZZLE_ADDR=:8008
 Environment=DOZZLE_ENABLE_ACTIONS=true
-Environment=DOZZLE_HOSTNAME=zimacube
+Environment=DOZZLE_HOSTNAME=Podman
 Environment=DOZZLE_NO_ANALYTICS=true
 
 HostName=dozzle
 Network=proxy.network
 PublishPort=8008:8008/tcp
 
-Volume=/%t/podman/podman.sock:/var/run/docker.sock:ro
+Volume=%t/podman/podman.sock:/var/run/docker.sock:ro
 
 [Service]
 NoNewPrivileges=true

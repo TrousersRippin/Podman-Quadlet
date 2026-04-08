@@ -8,7 +8,6 @@ Pod=paperless.pod
 ContainerName=paperless-redis
 Image=docker.io/library/redis:latest
 AutoUpdate=registry
-Timezone=local
 
 EnvironmentFile=paperless.env
 

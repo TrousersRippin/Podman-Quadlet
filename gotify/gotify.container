@@ -7,7 +7,6 @@ After=network-online.target local-fs.target
 ContainerName=gotify
 Image=docker.io/gotify/server:latest
 AutoUpdate=registry
-Timezone=local
 
 EnvironmentFile=gotify.env
 

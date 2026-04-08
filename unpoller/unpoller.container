@@ -7,7 +7,6 @@ After=network-online.target local-fs.target
 ContainerName=unpoller
 Image=ghcr.io/unpoller/unpoller:latest
 AutoUpdate=registry
-Timezone=local
 
 EnvironmentFile=unpoller.env
 

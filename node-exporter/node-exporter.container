@@ -7,7 +7,6 @@ After=network-online.target local-fs.target
 ContainerName=node-exporter
 Image=docker.io/prom/node-exporter:latest
 AutoUpdate=registry
-Timezone=local
 
 Exec=--path.rootfs=/host
 

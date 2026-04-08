@@ -7,7 +7,6 @@ After=network-online.target local-fs.target
 ContainerName=kavita
 Image=docker.io/jvmilazz0/kavita:latest
 AutoUpdate=registry
-Timezone=local
 
 HostName=kavita
 Network=proxy.network

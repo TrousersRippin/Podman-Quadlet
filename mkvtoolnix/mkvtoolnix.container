@@ -7,7 +7,6 @@ After=network-online.target local-fs.target
 ContainerName=mkvtoolnix
 Image=docker.io/jlesage/mkvtoolnix:latest
 AutoUpdate=registry
-Timezone=local
 
 Environment=DARK_MODE=1
 Environment=USER_ID=0

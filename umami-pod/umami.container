@@ -8,7 +8,6 @@ Requires=postgres.service
 ContainerName=umami
 Image=ghcr.io/umami-software/umami:latest
 AutoUpdate=registry
-Timezone=local
 
 EnvironmentFile=umami.env
 

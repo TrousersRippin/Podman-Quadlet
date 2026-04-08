@@ -8,7 +8,6 @@ Requires=prometheus.service
 ContainerName=grafana
 Image=docker.io/grafana/grafana:latest
 AutoUpdate=registry
-Timezone=local
 
 HostName=grafana
 Network=proxy.network

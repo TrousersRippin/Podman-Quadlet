@@ -7,7 +7,6 @@ After=network-online.target local-fs.target
 ContainerName=gatus
 Image=ghcr.io/twin/gatus:latest
 AutoUpdate=registry
-Timezone=local
 
 EnvironmentFile=gatus.env
 

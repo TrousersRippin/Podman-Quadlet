@@ -7,7 +7,6 @@ After=network-online.target local-fs.target
 ContainerName=filebrowser
 Image=docker.io/filebrowser/filebrowser:latest
 AutoUpdate=registry
-Timezone=local
 
 Environment=FB_PORT=8005
 Secret=fb_user,type=env,target=FB_USERNAME

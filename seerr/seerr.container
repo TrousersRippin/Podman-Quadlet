@@ -7,7 +7,6 @@ After=network-online.target local-fs.target
 ContainerName=seerr
 Image=ghcr.io/seerr-team/seerr:latest
 AutoUpdate=registry
-Timezone=local
 
 Environment=PUID=0
 Environment=PGID=0

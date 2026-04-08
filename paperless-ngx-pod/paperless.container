@@ -9,7 +9,6 @@ Pod=paperless.pod
 ContainerName=paperless-ngx
 Image=docker.io/paperlessngx/paperless-ngx:latest
 AutoUpdate=registry
-Timezone=local
 
 EnvironmentFile=paperless.env
 

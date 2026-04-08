@@ -8,7 +8,6 @@ Pod=home-assistant.pod
 ContainerName=home-assistant
 Image=docker.io/homeassistant/home-assistant:latest
 AutoUpdate=registry
-Timezone=local
 
 UserNS=keep-id:uid=1000,gid=1000
 

@@ -7,7 +7,6 @@ After=network-online.target local-fs.target
 ContainerName=memos
 Image=ghcr.io/usememos/memos:stable
 AutoUpdate=registry
-Timezone=local
 
 EnvironmentFile=memos.env
 

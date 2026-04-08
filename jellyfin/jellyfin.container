@@ -7,7 +7,6 @@ After=network-online.target local-fs.target
 ContainerName=jellyfin
 Image=docker.io/jellyfin/jellyfin:latest
 AutoUpdate=registry
-Timezone=local
 
 HealthCmd=none
 

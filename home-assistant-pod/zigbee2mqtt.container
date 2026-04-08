@@ -9,7 +9,6 @@ Pod=home-assistant.pod
 ContainerName=zigbee2mqtt
 Image=docker.io/koenkk/zigbee2mqtt:latest
 AutoUpdate=registry
-Timezone=local
 
 EnvironmentFile=home-assistant.env
 

@@ -7,7 +7,6 @@ After=network-online.target local-fs.target
 ContainerName=prowlarr
 Image=lscr.io/linuxserver/prowlarr:latest
 AutoUpdate=registry
-Timezone=local
 
 Environment=PUID=0
 Environment=PGID=0

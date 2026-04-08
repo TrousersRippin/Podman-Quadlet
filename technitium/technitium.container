@@ -7,7 +7,6 @@ After=network-online.target local-fs.target
 ContainerName=technitium
 Image=docker.io/technitium/dns-server:latest
 AutoUpdate=registry
-Timezone=local
 
 EnvironmentFile=technitium.env
 

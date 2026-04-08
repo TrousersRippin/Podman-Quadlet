@@ -7,7 +7,6 @@ After=network-online.target local-fs.target
 ContainerName=plex
 Image=docker.io/plexinc/pms-docker:latest
 AutoUpdate=registry
-Timezone=local
 
 Environment=PLEX_UID=0
 Environment=PLEX_GID=0
