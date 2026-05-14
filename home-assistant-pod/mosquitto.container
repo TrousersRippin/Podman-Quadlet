@@ -1,0 +1,26 @@
+[Unit]
+Description=Mosquitto
+Wants=network-online.target
+After=network-online.target local-fs.target
+
+[Container]
+Pod=home-assistant.pod
+ContainerName=mosquitto
+Image=docker.io/library/eclipse-mosquitto:latest
+AutoUpdate=registry
+
+UserNS=keep-id:uid=1000,gid=1000
+
+Volume=%h/containers/storage/mosquitto/config:/mosquitto/config:rw,Z
+Volume=%h/containers/storage/mosquitto/config/log:/mosquitto/log:rw,Z
+Volume=%h/containers/storage/mosquitto/data:/mosquitto/data:rw,Z
+
+[Service]
+NoNewPrivileges=true
+Restart=on-failure
+TimeoutStartSec=300
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target default.target

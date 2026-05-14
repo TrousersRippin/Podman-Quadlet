@@ -1,0 +1,5 @@
+[Pod]
+Network=proxy.network
+PodName=paperless-ngx
+PublishPort=6379:6379/tcp
+PublishPort=8000:8000/tcp

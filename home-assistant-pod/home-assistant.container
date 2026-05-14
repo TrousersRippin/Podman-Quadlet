@@ -1,0 +1,24 @@
+[Unit]
+Description=Home-Assistant
+Wants=network-online.target
+After=network-online.target local-fs.target
+
+[Container]
+Pod=home-assistant.pod
+ContainerName=home-assistant
+Image=docker.io/homeassistant/home-assistant:latest
+AutoUpdate=registry
+
+UserNS=keep-id:uid=1000,gid=1000
+
+Volume=%h/containers/storage/home-assistant/config:/config:rw,Z
+Volume=/run/dbus:/run/dbus:ro
+
+[Service]
+Restart=on-failure
+TimeoutStartSec=300
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target default.target

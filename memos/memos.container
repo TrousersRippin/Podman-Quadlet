@@ -1,0 +1,29 @@
+[Unit]
+Description=Memos
+Wants=network-online.target
+After=network-online.target local-fs.target
+
+[Container]
+ContainerName=memos
+Image=ghcr.io/usememos/memos:stable
+AutoUpdate=registry
+
+EnvironmentFile=memos.env
+
+UserNS=keep-id:uid=1000,gid=1000
+
+HostName=memos
+Network=proxy.network
+PublishPort=5230:5230/tcp
+
+Volume=%h/containers/storage/memos/config:/var/opt/memos:rw,Z
+
+[Service]
+NoNewPrivileges=true
+Restart=on-failure
+TimeoutStartSec=300
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target default.target

@@ -1,0 +1,5 @@
+[Pod]
+Network=proxy.network
+PodName=umami
+PublishPort=3210:3210/tcp
+PublishPort=5432:5432/tcp

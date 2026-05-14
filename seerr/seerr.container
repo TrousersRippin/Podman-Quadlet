@@ -1,0 +1,28 @@
+[Unit]
+Description=Seerr
+Wants=network-online.target
+After=network-online.target local-fs.target
+
+[Container]
+ContainerName=seerr
+Image=ghcr.io/seerr-team/seerr:latest
+AutoUpdate=registry
+
+Environment=PUID=0
+Environment=PGID=0
+
+HostName=seerr
+Network=proxy.network
+PublishPort=5055:5055/tcp
+
+Volume=%h/containers/storage/seerr/config:/config:rw,Z
+
+[Service]
+NoNewPrivileges=true
+Restart=on-failure
+TimeoutStartSec=300
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target default.target

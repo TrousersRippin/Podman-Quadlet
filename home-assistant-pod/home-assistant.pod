@@ -1,0 +1,6 @@
+[Pod]
+Network=proxy.network
+PodName=home-assistant
+PublishPort=1883:1883/tcp
+PublishPort=8123:8123/tcp
+PublishPort=8888:8888/tcp

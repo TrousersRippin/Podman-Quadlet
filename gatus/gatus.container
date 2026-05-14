@@ -1,0 +1,29 @@
+[Unit]
+Description=Gatus
+Wants=network-online.target
+After=network-online.target local-fs.target
+
+[Container]
+ContainerName=gatus
+Image=ghcr.io/twin/gatus:latest
+AutoUpdate=registry
+
+EnvironmentFile=gatus.env
+
+UserNS=keep-id:uid=1000,gid=1000
+
+HostName=gatus
+Network=proxy.network
+PublishPort=8899:8899/tcp
+
+Volume=%h/containers/storage/gatus/config:/config:ro,Z
+
+[Service]
+NoNewPrivileges=true
+Restart=on-failure
+TimeoutStartSec=300
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target default.target
